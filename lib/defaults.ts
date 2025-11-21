@@ -2,9 +2,11 @@ import { CaseStudyConfig, MetricConfig, DEFAULT_METRICS, TemplateVariant, Theme 
 
 /**
  * Creates a default case study configuration with all fields initialized
+ * Uses stable timestamps to prevent hydration mismatches
  */
 export function createDefaultConfig(name: string = 'New Case Study'): CaseStudyConfig {
-  const now = new Date().toISOString();
+  // Use a stable timestamp for hydration - will be updated on client
+  const stableTimestamp = '2000-01-01T00:00:00.000Z';
   
   // Initialize all metrics with default enabled states
   // Priority metrics (first 4) are enabled by default
@@ -16,7 +18,7 @@ export function createDefaultConfig(name: string = 'New Case Study'): CaseStudyC
   }));
 
   return {
-    id: `case-study-${Date.now()}`,
+    id: `case-study-default`,
     name,
     title: '',
     clientName: '',
@@ -39,8 +41,8 @@ export function createDefaultConfig(name: string = 'New Case Study'): CaseStudyC
     templateVariant: 'v1' as TemplateVariant,
     theme: 'dark' as Theme,
     showOrcaFooter: true,
-    createdAt: now,
-    updatedAt: now,
+    createdAt: stableTimestamp,
+    updatedAt: stableTimestamp,
   };
 }
 

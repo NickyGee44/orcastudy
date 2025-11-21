@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import { CaseStudyConfig, MetricConfig } from '@/types/case-study';
 import { createDefaultConfig } from '@/lib/defaults';
 import { useLocalStorage } from './useLocalStorage';
@@ -10,11 +10,29 @@ const STORAGE_KEY = 'orca-case-study-config';
  * Provides methods to update various fields and syncs with localStorage
  */
 export function useCaseStudyConfig() {
+  // Use a stable default config to prevent hydration mismatches
+  // The actual config will be loaded from localStorage in useEffect
   const defaultConfig = useMemo(() => createDefaultConfig(), []);
   const [config, setConfig, removeConfig] = useLocalStorage<CaseStudyConfig>(
     STORAGE_KEY,
     defaultConfig
   );
+
+  // Update timestamps and ID after hydration (client-side only)
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    
+    // Only update if we're using the default config (not loaded from localStorage)
+    if (config.id === 'case-study-default') {
+      const now = new Date().toISOString();
+      setConfig((prev) => ({
+        ...prev,
+        id: `case-study-${Date.now()}`,
+        createdAt: now,
+        updatedAt: now,
+      }));
+    }
+  }, [config.id, setConfig]);
 
   // Update a top-level field in the config
   const updateField = useCallback(

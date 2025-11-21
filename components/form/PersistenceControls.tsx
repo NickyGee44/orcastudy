@@ -173,11 +173,27 @@ export default function PersistenceControls() {
               className="w-full px-4 py-3 bg-orca-grey-1/50 border border-orca-grey-2/50 rounded-lg text-orca-light focus:outline-none focus:ring-2 focus:ring-orca-accent focus:border-orca-accent transition-all cursor-pointer"
             >
               <option value="">Select a saved case study...</option>
-              {savedConfigs.map((saved) => (
-                <option key={saved.id} value={saved.id}>
-                  {saved.name} - {saved.clientName || 'Untitled'} ({new Date(saved.updatedAt).toLocaleDateString()})
-                </option>
-              ))}
+              {savedConfigs.map((saved) => {
+                // Format date consistently to avoid hydration issues
+                let dateStr = '';
+                if (saved.updatedAt) {
+                  try {
+                    const date = new Date(saved.updatedAt);
+                    dateStr = date.toLocaleDateString('en-US', { 
+                      year: 'numeric', 
+                      month: 'short', 
+                      day: 'numeric' 
+                    });
+                  } catch {
+                    dateStr = '';
+                  }
+                }
+                return (
+                  <option key={saved.id} value={saved.id}>
+                    {saved.name} - {saved.clientName || 'Untitled'}{dateStr ? ` (${dateStr})` : ''}
+                  </option>
+                );
+              })}
             </select>
             <div className="flex flex-wrap gap-2">
               <button
