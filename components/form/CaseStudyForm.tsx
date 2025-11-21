@@ -8,6 +8,7 @@ import SettingsSection from './SettingsSection';
 import PersistenceControls from './PersistenceControls';
 import FormActions from './FormActions';
 import ProgressIndicator from './ProgressIndicator';
+import TemplateSelector from './TemplateSelector';
 
 interface SectionState {
   basics: boolean;
@@ -66,6 +67,11 @@ export default function CaseStudyForm() {
           <div className="mt-4">
             <ProgressIndicator />
           </div>
+        </div>
+
+        {/* Template Selector */}
+        <div className="mb-6">
+          <TemplateSelector />
         </div>
 
         {/* Case Study Basics Section */}

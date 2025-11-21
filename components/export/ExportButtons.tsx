@@ -52,7 +52,7 @@ export default function ExportButtons() {
       let canvas: HTMLCanvasElement;
       try {
         canvas = await renderElementToCanvas(previewRef.current, {
-          scale: 2,
+          scale: 3, // Premium quality - 3x scale for high-DPI exports
           backgroundColor: config.theme === 'dark' ? '#0f0f0f' : '#ffffff',
         });
       } catch (renderError) {
@@ -128,7 +128,7 @@ export default function ExportButtons() {
       let canvas: HTMLCanvasElement;
       try {
         canvas = await renderElementToCanvas(previewRef.current, {
-          scale: 2,
+          scale: 3, // Premium quality - 3x scale for high-DPI exports
           backgroundColor: config.theme === 'dark' ? '#0f0f0f' : '#ffffff',
         });
       } catch (renderError) {

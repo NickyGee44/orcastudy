@@ -4,10 +4,12 @@ import { createDefaultConfig } from '@/lib/defaults';
 import { useLocalStorage } from './useLocalStorage';
 
 const STORAGE_KEY = 'orca-case-study-config';
+const AUTOSAVE_DEBOUNCE_MS = 1000; // 1 second debounce for autosave
 
 /**
  * Main hook for managing case study configuration state
  * Provides methods to update various fields and syncs with localStorage
+ * Includes autosave functionality with debouncing
  */
 export function useCaseStudyConfig() {
   // Use a stable default config to prevent hydration mismatches
@@ -33,6 +35,21 @@ export function useCaseStudyConfig() {
       }));
     }
   }, [config.id, setConfig]);
+
+  // Autosave: Update timestamp whenever config changes (debounced)
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+    if (config.id === 'case-study-default') return; // Don't autosave default config
+    
+    const timeoutId = setTimeout(() => {
+      setConfig((prev) => ({
+        ...prev,
+        updatedAt: new Date().toISOString(),
+      }));
+    }, AUTOSAVE_DEBOUNCE_MS);
+
+    return () => clearTimeout(timeoutId);
+  }, [config, setConfig]);
 
   // Update a top-level field in the config
   const updateField = useCallback(
