@@ -20,7 +20,7 @@ export default function CaseStudyGenerator() {
 
         {/* Preview Button - Sticky at bottom */}
         <div className="sticky bottom-0 p-4 bg-gradient-to-t from-orca-dark/98 via-orca-dark/95 to-transparent backdrop-blur-md border-t border-orca-purple/20 shadow-2xl">
-          <div className="max-w-4xl mx-auto w-full flex justify-center">
+          <div className="max-w-4xl mx-auto w-full flex justify-center px-4 sm:px-6 lg:px-8">
             <button
               type="button"
               onClick={(e) => {

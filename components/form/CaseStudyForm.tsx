@@ -35,7 +35,7 @@ export default function CaseStudyForm() {
 
   return (
     <div className="h-full overflow-y-auto bg-gradient-to-b from-orca-dark via-orca-dark to-orca-darker">
-      <div className="max-w-4xl mx-auto p-6 space-y-5">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
         {/* Welcome Header */}
         <div className="mb-6 pb-6 border-b border-gradient-to-r from-orca-purple/30 via-orca-blue/30 to-transparent bg-gradient-to-r from-orca-purple/5 via-orca-blue/5 to-transparent rounded-xl p-5">
           <div className="flex items-center space-x-3 mb-3">
