@@ -113,7 +113,13 @@ export default function PersistenceControls() {
             onClick={() => setShowSaveDialog(true)}
             className="w-full max-w-xs px-4 py-2 bg-gradient-to-r from-orca-accent to-orca-accent-dark hover:from-orca-accent-dark hover:to-orca-accent text-orca-dark font-semibold rounded-lg transition-all shadow-md hover:shadow-lg flex items-center justify-center space-x-2 text-sm"
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg 
+              className="w-4 h-4 flex-shrink-0" 
+              fill="none" 
+              stroke="currentColor" 
+              viewBox="0 0 24 24"
+              style={{ width: '16px', height: '16px', minWidth: '16px', minHeight: '16px', maxWidth: '16px', maxHeight: '16px' }}
+            >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             <span>Save Case Study</span>

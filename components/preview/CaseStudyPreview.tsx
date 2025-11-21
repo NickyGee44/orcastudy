@@ -22,8 +22,8 @@ export default function CaseStudyPreview() {
   }, []);
 
   const themeClasses = config.theme === 'dark' 
-    ? 'bg-orca-charcoal text-orca-light' 
-    : 'bg-orca-white text-orca-black';
+    ? 'bg-[#0D0D0D] text-white' 
+    : 'bg-white text-black';
 
   return (
     <div

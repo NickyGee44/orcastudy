@@ -76,6 +76,13 @@ svg {
   flex-shrink: 0 !important;
   display: inline-block !important;
   box-sizing: border-box !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Force all SVGs to respect their size classes */
+svg[class*="w-"], svg[class*="h-"] {
+  flex-shrink: 0 !important;
 }
 
 /* Universal SVG size constraints - prevent any SVG from expanding */
@@ -97,6 +104,21 @@ svg[class~="h-3.5"] {
   max-height: 0.875rem !important;
   min-width: 0.875rem !important;
   min-height: 0.875rem !important;
+}
+
+/* w-3 h-3 SVGs - 12px */
+svg.w-3,
+svg.h-3,
+svg[class*="w-3"]:not([class*="w-3."]),
+svg[class*="h-3"]:not([class*="h-3."]),
+svg[class~="w-3"]:not([class~="w-3."]),
+svg[class~="h-3"]:not([class~="h-3."]) {
+  width: 0.75rem !important;
+  height: 0.75rem !important;
+  max-width: 0.75rem !important;
+  max-height: 0.75rem !important;
+  min-width: 0.75rem !important;
+  min-height: 0.75rem !important;
 }
 
 /* w-4 h-4 SVGs - very aggressive rules */
