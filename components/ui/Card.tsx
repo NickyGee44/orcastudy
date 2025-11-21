@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 interface CardProps {
   children: ReactNode;
   className?: string;
-  padding?: 'sm' | 'md' | 'lg';
+  padding?: 'sm' | 'md' | 'lg' | 'none';
   hover?: boolean;
 }
 
@@ -19,6 +19,7 @@ export default function Card({
     sm: 'p-4',
     md: 'p-5',
     lg: 'p-6',
+    none: '',
   };
   
   return (

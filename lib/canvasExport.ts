@@ -51,11 +51,12 @@ export async function renderElementToCanvas(
       const clonedElement = clonedDoc.querySelector('[data-export-target]') || 
                            clonedDoc.body.querySelector('[style*="850px"]');
       if (clonedElement) {
-        (clonedElement as HTMLElement).style.fontFamily = 'Lato, system-ui, sans-serif';
+        const elementStyle = (clonedElement as HTMLElement).style;
+        elementStyle.fontFamily = 'Lato, system-ui, sans-serif';
         // Ensure crisp rendering
-        (clonedElement as HTMLElement).style.imageRendering = 'crisp-edges';
-        (clonedElement as HTMLElement).style.webkitFontSmoothing = 'antialiased';
-        (clonedElement as HTMLElement).style.mozOsxFontSmoothing = 'grayscale';
+        elementStyle.imageRendering = 'crisp-edges';
+        (elementStyle as any).webkitFontSmoothing = 'antialiased';
+        (elementStyle as any).mozOsxFontSmoothing = 'grayscale';
       }
       
       // Handle image errors gracefully - hide broken images

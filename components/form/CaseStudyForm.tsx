@@ -9,6 +9,7 @@ import PersistenceControls from './PersistenceControls';
 import FormActions from './FormActions';
 import ProgressIndicator from './ProgressIndicator';
 import TemplateSelector from './TemplateSelector';
+import Card from '@/components/ui/Card';
 
 interface SectionState {
   basics: boolean;
@@ -108,10 +109,10 @@ export default function CaseStudyForm() {
               <BasicsSection />
             </div>
           )}
-        </div>
+        </Card>
 
-                {/* Metrics & KPIs Section */}
-                <Card padding="none" className="overflow-hidden border-white/6 shadow-card hover:shadow-lg transition-shadow duration-200">
+        {/* Metrics & KPIs Section */}
+        <Card padding="none" className="overflow-hidden border-white/6 shadow-card hover:shadow-lg transition-shadow duration-200">
           <button
             onClick={() => toggleSection('metrics')}
             className={`w-full px-5 py-4 bg-gradient-to-r transition-all flex items-center justify-between text-left group ${
@@ -144,10 +145,10 @@ export default function CaseStudyForm() {
               <MetricsSection />
             </div>
           )}
-        </div>
+        </Card>
 
-                {/* Narrative Sections */}
-                <Card padding="none" className="overflow-hidden border-white/6 shadow-card hover:shadow-lg transition-shadow duration-200">
+        {/* Narrative Sections */}
+        <Card padding="none" className="overflow-hidden border-white/6 shadow-card hover:shadow-lg transition-shadow duration-200">
           <button
             onClick={() => toggleSection('narrative')}
             className={`w-full px-5 py-4 bg-gradient-to-r transition-all flex items-center justify-between text-left group ${
@@ -180,10 +181,10 @@ export default function CaseStudyForm() {
               <NarrativeSection />
             </div>
           )}
-        </div>
+        </Card>
 
-                {/* Settings Section */}
-                <Card padding="none" className="overflow-hidden border-white/6 shadow-card hover:shadow-lg transition-shadow duration-200">
+        {/* Settings Section */}
+        <Card padding="none" className="overflow-hidden border-white/6 shadow-card hover:shadow-lg transition-shadow duration-200">
           <button
             onClick={() => toggleSection('settings')}
             className={`w-full px-5 py-4 bg-gradient-to-r transition-all flex items-center justify-between text-left group ${
@@ -217,10 +218,10 @@ export default function CaseStudyForm() {
               <SettingsSection />
             </div>
           )}
-        </div>
+        </Card>
 
-                {/* Persistence Controls */}
-                <Card padding="none" className="overflow-hidden border-white/6 shadow-card hover:shadow-lg transition-shadow duration-200">
+        {/* Persistence Controls */}
+        <Card padding="none" className="overflow-hidden border-white/6 shadow-card hover:shadow-lg transition-shadow duration-200">
           <button
             onClick={() => toggleSection('persistence')}
             className={`w-full px-5 py-4 bg-gradient-to-r transition-all flex items-center justify-between text-left group ${
@@ -253,7 +254,7 @@ export default function CaseStudyForm() {
               <PersistenceControls />
             </div>
           )}
-        </div>
+        </Card>
 
         {/* Form Actions */}
         <div className="pt-4">

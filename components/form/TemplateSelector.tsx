@@ -52,16 +52,19 @@ export default function TemplateSelector() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {templates.map((template) => (
-          <Card
+          <div
             key={template.id}
-            padding="md"
-            hover
-            className={`
-              cursor-pointer transition-all duration-200
+            onClick={() => handleApplyTemplate(template.id)}
+            className="cursor-pointer"
+          >
+            <Card
+              padding="md"
+              hover
+              className={`
+              transition-all duration-200
               ${selectedTemplate === template.id ? 'ring-2 ring-orca-accent' : ''}
             `}
-            onClick={() => handleApplyTemplate(template.id)}
-          >
+            >
             <div className="space-y-2">
               <div className="flex items-start justify-between">
                 <h4 className="text-body font-semibold text-orca-light">
@@ -87,6 +90,7 @@ export default function TemplateSelector() {
               </Button>
             </div>
           </Card>
+          </div>
         ))}
       </div>
     </div>
