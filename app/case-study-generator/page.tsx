@@ -15,12 +15,12 @@ export default function CaseStudyGenerator() {
         </div>
 
         {/* Right Panel - Preview */}
-        <div className="w-1/2 overflow-y-auto bg-orca-darker">
-          <div className="p-6">
+        <div className="w-1/2 overflow-y-auto bg-orca-darker flex flex-col">
+          <div className="flex-1 p-6">
             <CaseStudyPreview />
           </div>
-          {/* Export Buttons - Sticky at bottom */}
-          <div className="sticky bottom-0 bg-orca-darker border-t border-orca-grey-1 p-6">
+          {/* Export Buttons - Sticky at bottom, compact */}
+          <div className="sticky bottom-0 bg-orca-darker border-t border-orca-grey-1 p-3">
             <ExportButtons />
           </div>
         </div>
@@ -38,8 +38,8 @@ export default function CaseStudyGenerator() {
           <CaseStudyPreview />
         </div>
 
-        {/* Export Buttons - Sticky at bottom on mobile */}
-        <div className="sticky bottom-0 bg-orca-darker border-t border-orca-grey-1 p-4 shadow-lg">
+        {/* Export Buttons - Sticky at bottom on mobile, compact */}
+        <div className="sticky bottom-0 bg-orca-darker border-t border-orca-grey-1 p-2 shadow-lg">
           <ExportButtons />
         </div>
       </div>
