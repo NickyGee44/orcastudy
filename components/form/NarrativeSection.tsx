@@ -140,86 +140,64 @@ export default function NarrativeSection() {
       </div>
 
       {/* Testimonial */}
-      <div className="border-t border-orca-grey-1 pt-6">
-        <h3 className="text-lg font-semibold text-orca-light mb-4">Client Testimonial</h3>
+      <div className="border-t border-white/6 pt-6">
+        <h3 className="text-h3 font-bold text-orca-light mb-4">Client Testimonial</h3>
         
         <div className="space-y-4">
-          <div>
-            <label htmlFor="testimonialQuote" className="block text-sm font-medium text-orca-light mb-2">
-              Quote
-            </label>
-            <textarea
-              id="testimonialQuote"
-              value={config.testimonial?.quote || ''}
+          <Textarea
+            label="Quote"
+            id="testimonialQuote"
+            value={config.testimonial?.quote || ''}
+            onChange={(e) =>
+              updateField('testimonial', {
+                ...config.testimonial,
+                quote: e.target.value,
+              } as any)
+            }
+            rows={3}
+            placeholder="Client testimonial quote..."
+          />
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <Input
+              label="Name"
+              id="testimonialName"
+              type="text"
+              value={config.testimonial?.name || ''}
               onChange={(e) =>
                 updateField('testimonial', {
                   ...config.testimonial,
-                  quote: e.target.value,
+                  name: e.target.value,
                 } as any)
               }
-              rows={3}
-              className="w-full px-4 py-2 bg-orca-grey-1 border border-orca-grey-2 rounded-md text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent resize-y"
-              placeholder="Client testimonial quote..."
+              placeholder="John Doe"
             />
-          </div>
-
-          <div className="grid grid-cols-3 gap-4">
-            <div>
-              <label htmlFor="testimonialName" className="block text-sm font-medium text-orca-light mb-2">
-                Name
-              </label>
-              <input
-                type="text"
-                id="testimonialName"
-                value={config.testimonial?.name || ''}
-                onChange={(e) =>
-                  updateField('testimonial', {
-                    ...config.testimonial,
-                    name: e.target.value,
-                  } as any)
-                }
-                className="w-full px-4 py-2 bg-orca-grey-1 border border-orca-grey-2 rounded-md text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent"
-                placeholder="John Doe"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="testimonialTitle" className="block text-sm font-medium text-orca-light mb-2">
-                Title
-              </label>
-              <input
-                type="text"
-                id="testimonialTitle"
-                value={config.testimonial?.title || ''}
-                onChange={(e) =>
-                  updateField('testimonial', {
-                    ...config.testimonial,
-                    title: e.target.value,
-                  } as any)
-                }
-                className="w-full px-4 py-2 bg-orca-grey-1 border border-orca-grey-2 rounded-md text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent"
-                placeholder="VP of Supply Chain"
-              />
-            </div>
-
-            <div>
-              <label htmlFor="testimonialCompany" className="block text-sm font-medium text-orca-light mb-2">
-                Company
-              </label>
-              <input
-                type="text"
-                id="testimonialCompany"
-                value={config.testimonial?.company || ''}
-                onChange={(e) =>
-                  updateField('testimonial', {
-                    ...config.testimonial,
-                    company: e.target.value,
-                  } as any)
-                }
-                className="w-full px-4 py-2 bg-orca-grey-1 border border-orca-grey-2 rounded-md text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent"
-                placeholder="Company Name"
-              />
-            </div>
+            <Input
+              label="Title"
+              id="testimonialTitle"
+              type="text"
+              value={config.testimonial?.title || ''}
+              onChange={(e) =>
+                updateField('testimonial', {
+                  ...config.testimonial,
+                  title: e.target.value,
+                } as any)
+              }
+              placeholder="VP of Supply Chain"
+            />
+            <Input
+              label="Company"
+              id="testimonialCompany"
+              type="text"
+              value={config.testimonial?.company || ''}
+              onChange={(e) =>
+                updateField('testimonial', {
+                  ...config.testimonial,
+                  company: e.target.value,
+                } as any)
+              }
+              placeholder="Company Name"
+            />
           </div>
         </div>
       </div>
