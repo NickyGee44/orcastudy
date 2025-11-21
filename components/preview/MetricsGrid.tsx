@@ -88,31 +88,31 @@ export default function MetricsGrid() {
             }`}
             style={{
               backgroundColor: isPrimary && config.theme === 'dark' 
-                ? '#00b4d815' 
+                ? 'rgba(37, 194, 209, 0.1)' 
                 : isPrimary 
-                ? '#00b4d808'
+                ? 'rgba(37, 194, 209, 0.08)'
                 : config.theme === 'dark'
-                ? '#2a2a2a'
-                : '#f9fafb',
-              boxShadow: isPrimary ? '0 4px 12px rgba(0, 180, 216, 0.2)' : 'none',
+                ? 'rgba(255, 255, 255, 0.05)'
+                : 'rgba(0, 0, 0, 0.02)',
+              boxShadow: isPrimary ? '0 4px 20px rgba(37, 194, 209, 0.2)' : '0 2px 8px rgba(0, 0, 0, 0.1)',
+              borderColor: isPrimary ? '#25C2D1' : (config.theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)'),
             }}
           >
-            <div className="text-4xl md:text-5xl font-bold mb-2 leading-tight" style={{ 
-              color: isPrimary ? '#00b4d8' : (config.theme === 'dark' ? '#ffffff' : '#1a1a1a'),
+            <div className="text-4xl md:text-5xl font-bold mb-3 leading-tight" style={{ 
+              color: isPrimary ? '#25C2D1' : (config.theme === 'dark' ? '#ffffff' : '#000000'),
               fontWeight: 900,
             }}>
               {value || '—'}
             </div>
-            <div className="text-sm font-semibold mb-2 uppercase tracking-wide" style={{ 
-              color: config.theme === 'dark' ? '#cccccc' : '#4a4a4a',
-              letterSpacing: '0.05em',
+            <div className="text-caption font-semibold mb-2 uppercase tracking-wider" style={{ 
+              color: config.theme === 'dark' ? 'rgba(255, 255, 255, 0.7)' : 'rgba(0, 0, 0, 0.6)',
             }}>
               {metric.label}
             </div>
             {metric.footnote && (
-              <div className="text-xs mt-2 pt-2 border-t" style={{ 
-                color: config.theme === 'dark' ? '#6a6a6a' : '#6a6a6a',
-                borderColor: config.theme === 'dark' ? '#4a4a4a' : '#e5e7eb',
+              <div className="text-caption mt-3 pt-3 border-t" style={{ 
+                color: config.theme === 'dark' ? 'rgba(255, 255, 255, 0.5)' : 'rgba(0, 0, 0, 0.5)',
+                borderColor: config.theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
               }}>
                 {metric.footnote}
               </div>
