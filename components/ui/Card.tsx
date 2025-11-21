@@ -25,7 +25,7 @@ export default function Card({
   return (
     <div
       className={`
-        bg-orca-charcoal rounded-card shadow-card
+        bg-[#1E1E1E] rounded-card shadow-card border border-[rgba(255,255,255,0.08)]
         ${paddingClasses[padding]}
         ${hover ? 'hover:shadow-lg transition-shadow duration-200' : ''}
         ${className}

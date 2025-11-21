@@ -25,7 +25,7 @@ export default function Input({
       {label && (
         <label 
           htmlFor={inputId}
-          className="block text-label text-orca-light font-medium tracking-wider uppercase"
+          className="block text-[13px] text-[#B3B3B3] font-medium tracking-wider uppercase mb-2"
         >
           {label}
         </label>
@@ -39,10 +39,10 @@ export default function Input({
         <input
           id={inputId}
           className={`
-            w-full bg-white/5 border border-white/12 rounded-input
-            px-4 py-2.5 text-body text-orca-light
-            placeholder:text-orca-grey-3
-            focus:outline-none focus:border-orca-accent focus:shadow-focus
+            w-full bg-[#1E1E1E] border border-[rgba(255,255,255,0.08)] rounded-input
+            px-4 py-3 text-[15px] text-white
+            placeholder:text-[#B3B3B3]
+            focus:outline-none focus:border-[#25C2D1] focus:shadow-focus
             transition-all duration-200
             ${icon ? 'pl-10' : ''}
             ${error ? 'border-orca-danger' : ''}

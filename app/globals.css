@@ -8,6 +8,16 @@
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 26, 26, 26;
   --background-end-rgb: 15, 15, 15;
+  
+  /* Premium Design System Colors */
+  --bg-dark: #0D0D0D;
+  --bg-panel: #141414;
+  --bg-card: #1E1E1E;
+  --border-light: rgba(255, 255, 255, 0.08);
+  --text-primary: #FFFFFF;
+  --text-secondary: #B3B3B3;
+  --accent: #25C2D1;
+  --accent-dark: #1A99A5;
 }
 
 body {

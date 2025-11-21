@@ -15,7 +15,7 @@ export default function NarrativeSection() {
   } = useCaseStudyConfig();
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       {/* Client Overview */}
       <div>
         <Textarea

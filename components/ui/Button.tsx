@@ -21,16 +21,16 @@ export default function Button({
   const baseClasses = 'font-semibold rounded-button transition-all duration-200 flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed';
   
   const variantClasses = {
-    primary: 'bg-orca-accent text-orca-black hover:bg-orca-accent-dark hover:shadow-button-hover active:scale-[0.98]',
-    secondary: 'border border-white/15 bg-transparent text-orca-white hover:bg-orca-mid-grey hover:border-white/25',
-    destructive: 'bg-orca-danger text-orca-white hover:bg-[#C0392B]',
-    ghost: 'bg-transparent text-orca-light hover:bg-white/5',
+    primary: 'bg-[#25C2D1] text-black hover:bg-[#1A99A5] hover:shadow-button-hover active:scale-[0.98] h-[42px]',
+    secondary: 'border border-[rgba(255,255,255,0.1)] bg-transparent text-white hover:bg-[#1E1E1E] hover:border-[rgba(255,255,255,0.15)] h-[42px]',
+    destructive: 'bg-orca-danger text-white hover:bg-[#C0392B] h-[42px]',
+    ghost: 'bg-transparent text-white hover:bg-[rgba(255,255,255,0.05)] h-[42px]',
   };
   
   const sizeClasses = {
-    sm: 'px-3 py-1.5 text-sm',
-    md: 'px-4 py-2.5 text-body',
-    lg: 'px-6 py-3.5 text-base',
+    sm: 'px-3 py-1.5 text-sm h-[36px]',
+    md: 'px-4 py-2.5 text-[15px] h-[42px]',
+    lg: 'px-6 py-3.5 text-base h-[48px]',
   };
   
   return (

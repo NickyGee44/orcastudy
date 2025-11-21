@@ -2,12 +2,13 @@
 
 import { SelectHTMLAttributes, ReactNode } from 'react';
 
-interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
+interface SelectProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'children'> {
   label?: string;
   error?: string;
   helperText?: string;
   icon?: ReactNode;
-  options: Array<{ value: string; label: string }>;
+  options?: Array<{ value: string; label: string }>;
+  children?: ReactNode;
 }
 
 export default function Select({
@@ -16,6 +17,7 @@ export default function Select({
   helperText,
   icon,
   options,
+  children,
   className = '',
   id,
   ...props
@@ -27,7 +29,7 @@ export default function Select({
       {label && (
         <label 
           htmlFor={selectId}
-          className="block text-label text-orca-light font-medium tracking-wider uppercase"
+          className="block text-[13px] text-[#B3B3B3] font-medium tracking-wider uppercase mb-2"
         >
           {label}
         </label>
@@ -41,9 +43,9 @@ export default function Select({
         <select
           id={selectId}
           className={`
-            w-full bg-white/5 border border-white/12 rounded-input
-            px-4 py-2.5 text-body text-orca-light
-            focus:outline-none focus:border-orca-accent focus:shadow-focus
+            w-full bg-[#1E1E1E] border border-[rgba(255,255,255,0.08)] rounded-input
+            px-4 py-3 text-[15px] text-white
+            focus:outline-none focus:border-[#25C2D1] focus:shadow-focus
             transition-all duration-200 cursor-pointer
             appearance-none bg-[url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E")] bg-no-repeat bg-[length:20px] bg-[right_12px_center]
             ${icon ? 'pl-10' : ''}
@@ -52,11 +54,15 @@ export default function Select({
           `}
           {...props}
         >
-          {options.map((option) => (
-            <option key={option.value} value={option.value} className="bg-orca-charcoal">
-              {option.label}
-            </option>
-          ))}
+          {options ? (
+            options.map((option) => (
+              <option key={option.value} value={option.value} className="bg-[#1E1E1E]">
+                {option.label}
+              </option>
+            ))
+          ) : (
+            children
+          )}
         </select>
       </div>
       {error && (

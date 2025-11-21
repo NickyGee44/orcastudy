@@ -29,7 +29,7 @@ export default function Switch({
           htmlFor={switchId}
           className={`
             relative inline-flex h-6 w-11 items-center rounded-full transition-colors duration-200 cursor-pointer
-            ${props.checked ? 'bg-orca-accent' : 'bg-orca-mid-grey'}
+            ${props.checked ? 'bg-[#25C2D1]' : 'bg-[#2E2E2E]'}
             ${props.disabled ? 'opacity-50 cursor-not-allowed' : ''}
           `}
         >
@@ -44,12 +44,12 @@ export default function Switch({
       {(label || description) && (
         <div className="flex-1 min-w-0">
           {label && (
-            <label htmlFor={switchId} className="block text-body font-medium text-orca-light cursor-pointer">
+            <label htmlFor={switchId} className="block text-[15px] font-medium text-white cursor-pointer">
               {label}
             </label>
           )}
           {description && (
-            <p className="text-caption text-orca-grey-3 mt-1">{description}</p>
+            <p className="text-[13px] text-[#B3B3B3] mt-1">{description}</p>
           )}
         </div>
       )}

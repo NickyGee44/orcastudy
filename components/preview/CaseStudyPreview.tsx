@@ -26,19 +26,17 @@ export default function CaseStudyPreview() {
     : 'bg-orca-white text-orca-black';
 
   return (
-    <div className="flex items-center justify-center min-h-full p-3 md:p-6">
-      <div
-        ref={previewRef}
-        data-export-target
-        className={`${themeClasses} rounded-card shadow-2xl`}
-        style={{
-          width: '100%',
-          maxWidth: '850px',
-          aspectRatio: '850 / 1100',
-          padding: 'clamp(40px, 5vw, 70px)',
-          boxSizing: 'border-box',
-        }}
-      >
+    <div
+      ref={previewRef}
+      data-export-target
+      className={`${themeClasses} rounded-lg shadow-2xl`}
+      style={{
+        width: '850px',
+        height: '1100px',
+        padding: '60px',
+        boxSizing: 'border-box',
+      }}
+    >
         {/* Header Bar */}
         <HeaderBar />
 
@@ -59,7 +57,6 @@ export default function CaseStudyPreview() {
 
         {/* Footer / CTA */}
         {config.showOrcaFooter && <FooterSection />}
-      </div>
     </div>
   );
 }
