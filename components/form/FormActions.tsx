@@ -32,9 +32,11 @@ export default function FormActions() {
           onClick={handleLoadSample}
           className="flex-1 min-w-[200px] px-5 py-3 bg-gradient-to-r from-orca-purple to-orca-blue hover:from-orca-purple-dark hover:to-orca-blue-dark text-orca-light font-semibold rounded-xl transition-all shadow-lg hover:shadow-xl hover:scale-[1.02] flex items-center justify-center space-x-2"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
-          </svg>
+          <span className="inline-flex items-center justify-center w-5 h-5 flex-shrink-0" style={{ width: '20px', height: '20px', minWidth: '20px', minHeight: '20px', maxWidth: '20px', maxHeight: '20px' }}>
+            <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} style={{ width: '100%', height: '100%', display: 'block' }}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+            </svg>
+          </span>
           <span>Load Sample Data</span>
         </button>
 
@@ -43,9 +45,11 @@ export default function FormActions() {
           onClick={handleReset}
           className="px-5 py-3 bg-orca-grey-1/50 hover:bg-orca-grey-1 border-2 border-orca-grey-2/50 text-orca-light font-medium rounded-xl transition-all flex items-center justify-center space-x-2 hover:border-orca-grey-2"
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-            <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-          </svg>
+          <span className="inline-flex items-center justify-center w-5 h-5 flex-shrink-0" style={{ width: '20px', height: '20px', minWidth: '20px', minHeight: '20px', maxWidth: '20px', maxHeight: '20px' }}>
+            <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} style={{ width: '100%', height: '100%', display: 'block' }}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          </span>
           <span>{showResetConfirm ? 'Confirm Reset' : 'Reset'}</span>
         </button>
       </div>
@@ -83,9 +87,11 @@ export default function FormActions() {
 
       <div className="pt-2">
         <p className="text-xs text-orca-grey-3 text-center flex items-center justify-center space-x-1">
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-          </svg>
+          <span className="inline-flex items-center justify-center w-4 h-4 flex-shrink-0" style={{ width: '16px', height: '16px', minWidth: '16px', minHeight: '16px', maxWidth: '16px', maxHeight: '16px' }}>
+            <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} style={{ width: '100%', height: '100%', display: 'block' }}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </span>
           <span>Tip: Click "Load Sample Data" to see a complete example case study</span>
         </p>
       </div>

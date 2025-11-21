@@ -101,9 +101,11 @@ export default function PersistenceControls() {
       {/* Save Current Config */}
       <div>
         <h3 className="text-lg font-semibold text-orca-light mb-3 flex items-center space-x-2">
-          <svg className="w-5 h-5 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
-          </svg>
+          <span className="inline-flex items-center justify-center w-5 h-5 flex-shrink-0 text-orca-accent" style={{ width: '20px', height: '20px', minWidth: '20px', minHeight: '20px', maxWidth: '20px', maxHeight: '20px' }}>
+            <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} style={{ width: '100%', height: '100%', display: 'block' }}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+            </svg>
+          </span>
           <span>Save Current Case Study</span>
         </h3>
         {!showSaveDialog ? (
@@ -151,9 +153,11 @@ export default function PersistenceControls() {
       {/* Load Saved Config */}
       <div>
         <h3 className="text-lg font-semibold text-orca-light mb-3 flex items-center space-x-2">
-          <svg className="w-5 h-5 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-          </svg>
+          <span className="inline-flex items-center justify-center w-5 h-5 flex-shrink-0 text-orca-accent" style={{ width: '20px', height: '20px', minWidth: '20px', minHeight: '20px', maxWidth: '20px', maxHeight: '20px' }}>
+            <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} style={{ width: '100%', height: '100%', display: 'block' }}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+          </span>
           <span>Load Saved Case Study</span>
           <span className="text-sm font-normal text-orca-grey-3">({savedConfigs.length} saved)</span>
         </h3>

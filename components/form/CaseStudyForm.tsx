@@ -40,9 +40,11 @@ export default function CaseStudyForm() {
         <div className="mb-6 pb-6 border-b border-gradient-to-r from-orca-purple/30 via-orca-blue/30 to-transparent bg-gradient-to-r from-orca-purple/5 via-orca-blue/5 to-transparent rounded-xl p-5">
           <div className="flex items-center space-x-3 mb-3">
             <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orca-purple/30 to-orca-blue/30 flex items-center justify-center flex-shrink-0 shadow-lg">
-              <svg className="w-5 h-5 text-orca-light" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-              </svg>
+              <span className="inline-flex items-center justify-center w-5 h-5 flex-shrink-0 text-orca-light" style={{ width: '20px', height: '20px', minWidth: '20px', minHeight: '20px', maxWidth: '20px', maxHeight: '20px' }}>
+                <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} style={{ width: '100%', height: '100%', display: 'block' }}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </span>
             </div>
             <div>
               <h1 className="text-2xl font-bold bg-gradient-to-r from-orca-light to-orca-grey-3 bg-clip-text text-transparent">
