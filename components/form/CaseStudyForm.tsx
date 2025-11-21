@@ -35,28 +35,28 @@ export default function CaseStudyForm() {
 
   return (
     <div className="h-full overflow-y-auto bg-gradient-to-b from-orca-dark to-orca-darker">
-      <div className="p-6 space-y-4">
+      <div className="p-4 space-y-3">
         {/* Welcome Header */}
-        <div className="mb-6 pb-6 border-b border-orca-grey-1/50">
-          <div className="flex items-center space-x-2 mb-3">
-            <div className="w-8 h-8 rounded-lg bg-orca-accent/20 flex items-center justify-center flex-shrink-0">
-              <svg className="w-4 h-4 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+        <div className="mb-4 pb-4 border-b border-orca-grey-1/50">
+          <div className="flex items-center space-x-2 mb-2">
+            <div className="w-6 h-6 rounded bg-orca-accent/20 flex items-center justify-center flex-shrink-0">
+              <svg className="w-3.5 h-3.5 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-orca-light">Case Study Generator</h1>
+              <h1 className="text-lg font-bold text-orca-light">Case Study Generator</h1>
               <p className="text-orca-grey-3 text-xs mt-0.5">
                 Create professional case studies in minutes
               </p>
             </div>
           </div>
-          <div className="mt-4 p-3 bg-orca-accent/10 border border-orca-accent/20 rounded-lg">
-            <p className="text-sm text-orca-light/90 flex items-start space-x-2">
-              <svg className="w-5 h-5 text-orca-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+          <div className="mt-3 p-2.5 bg-orca-accent/10 border border-orca-accent/20 rounded-lg">
+            <p className="text-xs text-orca-light/90 flex items-start space-x-2">
+              <svg className="w-3.5 h-3.5 text-orca-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
-              <span><strong>Tip:</strong> Fill out the form on the left and watch your case study come to life in real-time on the right. Start with the basics, then add metrics and narrative content.</span>
+              <span><strong>Tip:</strong> Fill out the form and click "Preview Case Study" to see your case study. Start with the basics, then add metrics and narrative content.</span>
             </p>
           </div>
           <ProgressIndicator />
@@ -66,7 +66,7 @@ export default function CaseStudyForm() {
         <div className="border border-orca-grey-1/50 rounded-xl overflow-hidden bg-orca-grey-1/20 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
           <button
             onClick={() => toggleSection('basics')}
-            className="w-full px-4 py-3 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
+            className="w-full px-3 py-2 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
           >
             <div className="flex items-center space-x-2">
               <div className="w-5 h-5 rounded bg-orca-accent/20 flex items-center justify-center group-hover:bg-orca-accent/30 transition-colors flex-shrink-0">
@@ -81,7 +81,7 @@ export default function CaseStudyForm() {
             </span>
           </button>
           {sections.basics && (
-            <div className="p-6 bg-orca-dark/50 animate-in slide-in-from-top-2 duration-200">
+            <div className="p-4 bg-orca-dark/50 animate-in slide-in-from-top-2 duration-200">
               <BasicsSection />
             </div>
           )}
@@ -91,7 +91,7 @@ export default function CaseStudyForm() {
         <div className="border border-orca-grey-1/50 rounded-xl overflow-hidden bg-orca-grey-1/20 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
           <button
             onClick={() => toggleSection('metrics')}
-            className="w-full px-4 py-3 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
+            className="w-full px-3 py-2 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
           >
             <div className="flex items-center space-x-2">
               <div className="w-5 h-5 rounded bg-orca-accent/20 flex items-center justify-center group-hover:bg-orca-accent/30 transition-colors flex-shrink-0">
@@ -106,7 +106,7 @@ export default function CaseStudyForm() {
             </span>
           </button>
           {sections.metrics && (
-            <div className="p-6 bg-orca-dark/50 animate-in slide-in-from-top-2 duration-200">
+            <div className="p-4 bg-orca-dark/50 animate-in slide-in-from-top-2 duration-200">
               <MetricsSection />
             </div>
           )}
@@ -116,7 +116,7 @@ export default function CaseStudyForm() {
         <div className="border border-orca-grey-1/50 rounded-xl overflow-hidden bg-orca-grey-1/20 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
           <button
             onClick={() => toggleSection('narrative')}
-            className="w-full px-4 py-3 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
+            className="w-full px-3 py-2 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
           >
             <div className="flex items-center space-x-2">
               <div className="w-5 h-5 rounded bg-orca-accent/20 flex items-center justify-center group-hover:bg-orca-accent/30 transition-colors flex-shrink-0">
@@ -131,7 +131,7 @@ export default function CaseStudyForm() {
             </span>
           </button>
           {sections.narrative && (
-            <div className="p-6 bg-orca-dark/50 animate-in slide-in-from-top-2 duration-200">
+            <div className="p-4 bg-orca-dark/50 animate-in slide-in-from-top-2 duration-200">
               <NarrativeSection />
             </div>
           )}
@@ -141,7 +141,7 @@ export default function CaseStudyForm() {
         <div className="border border-orca-grey-1/50 rounded-xl overflow-hidden bg-orca-grey-1/20 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
           <button
             onClick={() => toggleSection('settings')}
-            className="w-full px-4 py-3 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
+            className="w-full px-3 py-2 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
           >
             <div className="flex items-center space-x-2">
               <div className="w-5 h-5 rounded bg-orca-accent/20 flex items-center justify-center group-hover:bg-orca-accent/30 transition-colors flex-shrink-0">
@@ -157,7 +157,7 @@ export default function CaseStudyForm() {
             </span>
           </button>
           {sections.settings && (
-            <div className="p-6 bg-orca-dark/50 animate-in slide-in-from-top-2 duration-200">
+            <div className="p-4 bg-orca-dark/50 animate-in slide-in-from-top-2 duration-200">
               <SettingsSection />
             </div>
           )}
@@ -167,7 +167,7 @@ export default function CaseStudyForm() {
         <div className="border border-orca-grey-1/50 rounded-xl overflow-hidden bg-orca-grey-1/20 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
           <button
             onClick={() => toggleSection('persistence')}
-            className="w-full px-4 py-3 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
+            className="w-full px-3 py-2 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
           >
             <div className="flex items-center space-x-2">
               <div className="w-5 h-5 rounded bg-orca-accent/20 flex items-center justify-center group-hover:bg-orca-accent/30 transition-colors flex-shrink-0">
@@ -182,7 +182,7 @@ export default function CaseStudyForm() {
             </span>
           </button>
           {sections.persistence && (
-            <div className="p-6 bg-orca-dark/50 animate-in slide-in-from-top-2 duration-200">
+            <div className="p-4 bg-orca-dark/50 animate-in slide-in-from-top-2 duration-200">
               <PersistenceControls />
             </div>
           )}
