@@ -71,7 +71,7 @@ export default function MetricsGrid() {
                    'grid-cols-3';
 
   return (
-    <div className={`mb-8 grid ${gridCols} gap-4`}>
+    <div className={`mb-10 grid ${gridCols} gap-5`}>
       {displayedMetrics.map((metric, index) => {
         const isPrimary = index === 0;
         const value = formatValue(metric);

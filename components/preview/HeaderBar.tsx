@@ -8,8 +8,8 @@ export default function HeaderBar() {
   const [logoError, setLogoError] = useState(false);
 
   return (
-    <div className="flex items-center justify-between mb-8 pb-4 border-b" style={{ 
-      borderColor: config.theme === 'dark' ? '#4a4a4a' : '#e5e7eb',
+    <div className="flex items-center justify-between mb-10 pb-5 border-b" style={{ 
+      borderColor: config.theme === 'dark' ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.1)',
     }}>
       {/* Left: Orca Logo */}
       <div className="flex items-center">
@@ -17,20 +17,24 @@ export default function HeaderBar() {
           <img
             src={config.clientLogoUrl}
             alt={config.clientName || 'Client Logo'}
-            className="h-12 w-auto object-contain"
+            className="h-14 w-auto object-contain"
             onError={() => setLogoError(true)}
           />
         ) : (
-          <div className="text-2xl font-bold tracking-wider" style={{ color: config.theme === 'dark' ? '#00b4d8' : '#0096c7' }}>
+          <div className="text-2xl font-bold tracking-wider" style={{ 
+            color: config.theme === 'dark' ? '#25C2D1' : '#1A9BA8',
+            letterSpacing: '0.1em',
+          }}>
             ORCA
           </div>
         )}
       </div>
 
       {/* Right: Badge */}
-      <div className="text-xs px-3 py-1 rounded-full border" style={{ 
-        borderColor: config.theme === 'dark' ? '#4a4a4a' : '#6a6a6a',
-        color: config.theme === 'dark' ? '#6a6a6a' : '#4a4a4a',
+      <div className="text-caption px-4 py-1.5 rounded-full border font-medium tracking-wider uppercase" style={{ 
+        borderColor: config.theme === 'dark' ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.15)',
+        color: config.theme === 'dark' ? 'rgba(255, 255, 255, 0.6)' : 'rgba(0, 0, 0, 0.6)',
+        backgroundColor: config.theme === 'dark' ? 'rgba(255, 255, 255, 0.05)' : 'rgba(0, 0, 0, 0.05)',
       }}>
         Freight Audit & Analytics Case Study
       </div>
