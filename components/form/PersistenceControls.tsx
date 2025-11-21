@@ -109,9 +109,9 @@ export default function PersistenceControls() {
         {!showSaveDialog ? (
           <button
             onClick={() => setShowSaveDialog(true)}
-            className="w-full px-4 py-3 bg-gradient-to-r from-orca-accent to-orca-accent-dark hover:from-orca-accent-dark hover:to-orca-accent text-orca-dark font-semibold rounded-lg transition-all shadow-md hover:shadow-lg flex items-center justify-center space-x-2"
+            className="w-full max-w-xs px-4 py-2 bg-gradient-to-r from-orca-accent to-orca-accent-dark hover:from-orca-accent-dark hover:to-orca-accent text-orca-dark font-semibold rounded-lg transition-all shadow-md hover:shadow-lg flex items-center justify-center space-x-2 text-sm"
           >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
             <span>Save Case Study</span>
@@ -124,13 +124,13 @@ export default function PersistenceControls() {
               onChange={(e) => setSaveName(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSave()}
               placeholder="Enter a name for this case study"
-              className="w-full px-4 py-3 bg-orca-grey-1/50 border border-orca-grey-2/50 rounded-lg text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent focus:border-orca-accent transition-all"
+              className="w-full px-4 py-2 bg-orca-grey-1/50 border border-orca-grey-2/50 rounded-lg text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent focus:border-orca-accent transition-all text-sm"
               autoFocus
             />
-            <div className="flex space-x-2">
+            <div className="flex flex-wrap gap-2">
               <button
                 onClick={handleSave}
-                className="flex-1 px-4 py-3 bg-gradient-to-r from-orca-accent to-orca-accent-dark hover:from-orca-accent-dark hover:to-orca-accent text-orca-dark font-semibold rounded-lg transition-all shadow-md"
+                className="px-4 py-2 bg-gradient-to-r from-orca-accent to-orca-accent-dark hover:from-orca-accent-dark hover:to-orca-accent text-orca-dark font-semibold rounded-lg transition-all shadow-md text-sm"
               >
                 Save
               </button>
@@ -139,7 +139,7 @@ export default function PersistenceControls() {
                   setShowSaveDialog(false);
                   setSaveName('');
                 }}
-                className="px-4 py-3 bg-orca-grey-1/50 hover:bg-orca-grey-1 border border-orca-grey-2/50 text-orca-light rounded-lg transition-all font-medium"
+                className="px-4 py-2 bg-orca-grey-1/50 hover:bg-orca-grey-1 border border-orca-grey-2/50 text-orca-light rounded-lg transition-all font-medium text-sm"
               >
                 Cancel
               </button>
@@ -175,18 +175,18 @@ export default function PersistenceControls() {
                 </option>
               ))}
             </select>
-            <div className="flex space-x-2">
+            <div className="flex flex-wrap gap-2">
               <button
                 onClick={handleLoad}
                 disabled={!selectedConfigId}
-                className="flex-1 px-4 py-3 bg-gradient-to-r from-orca-accent to-orca-accent-dark hover:from-orca-accent-dark hover:to-orca-accent disabled:from-orca-grey-2 disabled:to-orca-grey-2 disabled:text-orca-grey-3 text-orca-dark font-semibold rounded-lg transition-all shadow-md disabled:shadow-none"
+                className="px-4 py-2 bg-gradient-to-r from-orca-accent to-orca-accent-dark hover:from-orca-accent-dark hover:to-orca-accent disabled:from-orca-grey-2 disabled:to-orca-grey-2 disabled:text-orca-grey-3 text-orca-dark font-semibold rounded-lg transition-all shadow-md disabled:shadow-none text-sm"
               >
                 Load
               </button>
               <button
                 onClick={handleDelete}
                 disabled={!selectedConfigId}
-                className="px-4 py-3 bg-red-900/30 hover:bg-red-900/50 disabled:bg-orca-grey-2 disabled:text-orca-grey-3 text-red-400 font-semibold rounded-lg transition-all border border-red-700/50 disabled:border-transparent"
+                className="px-4 py-2 bg-red-900/30 hover:bg-red-900/50 disabled:bg-orca-grey-2 disabled:text-orca-grey-3 text-red-400 font-semibold rounded-lg transition-all border border-red-700/50 disabled:border-transparent text-sm"
               >
                 Delete
               </button>
