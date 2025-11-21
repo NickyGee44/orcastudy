@@ -64,27 +64,73 @@ html {
 /* Prevent SVG expansion - force constrained sizing */
 svg {
   flex-shrink: 0 !important;
-  display: inline-block;
+  display: inline-block !important;
+  box-sizing: border-box !important;
 }
 
-/* Ensure width/height classes are respected */
+/* Universal SVG size constraints - prevent any SVG from expanding */
+svg[viewBox] {
+  max-width: 100% !important;
+  max-height: 100% !important;
+}
+
+/* Ensure width/height classes are respected - multiple selectors for maximum coverage */
 svg.w-3\.5,
 svg.h-3\.5,
 svg[class*="w-3.5"],
-svg[class*="h-3.5"] {
+svg[class*="h-3.5"],
+svg[class~="w-3.5"],
+svg[class~="h-3.5"] {
   width: 0.875rem !important;
   height: 0.875rem !important;
   max-width: 0.875rem !important;
   max-height: 0.875rem !important;
+  min-width: 0.875rem !important;
+  min-height: 0.875rem !important;
 }
 
+/* w-4 h-4 SVGs - very aggressive rules */
 svg.w-4,
 svg.h-4,
 svg[class*="w-4"],
-svg[class*="h-4"] {
+svg[class*="h-4"],
+svg[class~="w-4"],
+svg[class~="h-4"],
+svg[class*="w-4"][class*="h-4"],
+svg[class*="h-4"][class*="w-4"] {
   width: 1rem !important;
   height: 1rem !important;
   max-width: 1rem !important;
   max-height: 1rem !important;
+  min-width: 1rem !important;
+  min-height: 1rem !important;
+}
+
+/* Specific rule for warning icons (viewBox="0 0 20 20") */
+svg[viewBox="0 0 20 20"][class*="w-4"],
+svg[viewBox="0 0 20 20"][class*="h-4"],
+svg[viewBox="0 0 20 20"] {
+  width: 1rem !important;
+  height: 1rem !important;
+  max-width: 1rem !important;
+  max-height: 1rem !important;
+  min-width: 1rem !important;
+  min-height: 1rem !important;
+}
+
+/* Prevent parent containers from expanding SVGs */
+.flex svg,
+[class*="flex"] svg,
+[class*="space-x"] svg {
+  flex-shrink: 0 !important;
+  width: auto !important;
+  height: auto !important;
+}
+
+/* Override any width/height auto on SVGs with size classes */
+svg[style*="width"],
+svg[style*="height"] {
+  max-width: var(--svg-width, 1rem) !important;
+  max-height: var(--svg-height, 1rem) !important;
 }
 
