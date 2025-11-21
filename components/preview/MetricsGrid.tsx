@@ -79,7 +79,7 @@ export default function MetricsGrid() {
         return (
           <div
             key={metric.id}
-            className={`p-4 rounded-lg border ${
+            className={`p-5 rounded-lg border-2 ${
               isPrimary
                 ? 'border-orca-accent'
                 : config.theme === 'dark'
@@ -88,27 +88,31 @@ export default function MetricsGrid() {
             }`}
             style={{
               backgroundColor: isPrimary && config.theme === 'dark' 
-                ? '#00b4d810' 
+                ? '#00b4d815' 
                 : isPrimary 
-                ? '#00b4d805'
+                ? '#00b4d808'
                 : config.theme === 'dark'
                 ? '#2a2a2a'
                 : '#f9fafb',
+              boxShadow: isPrimary ? '0 4px 12px rgba(0, 180, 216, 0.2)' : 'none',
             }}
           >
-            <div className="text-3xl font-bold mb-1" style={{ 
+            <div className="text-4xl md:text-5xl font-bold mb-2 leading-tight" style={{ 
               color: isPrimary ? '#00b4d8' : (config.theme === 'dark' ? '#ffffff' : '#1a1a1a'),
+              fontWeight: 900,
             }}>
               {value || '—'}
             </div>
-            <div className="text-sm font-medium mb-1" style={{ 
-              color: config.theme === 'dark' ? '#ffffff' : '#1a1a1a',
+            <div className="text-sm font-semibold mb-2 uppercase tracking-wide" style={{ 
+              color: config.theme === 'dark' ? '#cccccc' : '#4a4a4a',
+              letterSpacing: '0.05em',
             }}>
               {metric.label}
             </div>
             {metric.footnote && (
-              <div className="text-xs mt-1" style={{ 
-                color: config.theme === 'dark' ? '#6a6a6a' : '#4a4a4a',
+              <div className="text-xs mt-2 pt-2 border-t" style={{ 
+                color: config.theme === 'dark' ? '#6a6a6a' : '#6a6a6a',
+                borderColor: config.theme === 'dark' ? '#4a4a4a' : '#e5e7eb',
               }}>
                 {metric.footnote}
               </div>
