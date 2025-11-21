@@ -6,21 +6,25 @@ import ExportButtons from '@/components/export/ExportButtons';
 
 export default function CaseStudyGenerator() {
   return (
-    <div className="min-h-screen bg-orca-dark text-orca-light">
+    <div className="min-h-screen bg-gradient-to-br from-orca-dark via-orca-dark to-orca-darker text-orca-light">
       {/* Desktop: Side-by-side layout */}
       <div className="hidden md:flex h-screen">
         {/* Left Panel - Input Form */}
-        <div className="w-1/2 border-r border-orca-grey-1 overflow-hidden">
+        <div className="w-1/2 border-r border-orca-grey-1/30 overflow-hidden bg-gradient-to-b from-orca-dark to-orca-darker/50">
           <CaseStudyForm />
         </div>
 
         {/* Right Panel - Preview */}
-        <div className="w-1/2 overflow-y-auto bg-orca-darker flex flex-col">
+        <div className="w-1/2 overflow-y-auto bg-gradient-to-b from-orca-darker to-orca-dark flex flex-col">
           <div className="flex-1 p-6">
+            <div className="mb-4 pb-4 border-b border-orca-grey-1/30">
+              <h2 className="text-lg font-semibold text-orca-light mb-1">Live Preview</h2>
+              <p className="text-xs text-orca-grey-3">See your case study update in real-time</p>
+            </div>
             <CaseStudyPreview />
           </div>
           {/* Export Buttons - Sticky at bottom, compact toolbar */}
-          <div className="sticky bottom-0 bg-orca-darker border-t border-orca-grey-1 p-2">
+          <div className="sticky bottom-0 bg-orca-darker/95 backdrop-blur-sm border-t border-orca-grey-1/30 p-2 shadow-lg">
             <ExportButtons />
           </div>
         </div>

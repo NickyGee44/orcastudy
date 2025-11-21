@@ -100,13 +100,21 @@ export default function PersistenceControls() {
 
       {/* Save Current Config */}
       <div>
-        <h3 className="text-lg font-semibold text-orca-light mb-3">Save Current Case Study</h3>
+        <h3 className="text-lg font-semibold text-orca-light mb-3 flex items-center space-x-2">
+          <svg className="w-5 h-5 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
+          </svg>
+          <span>Save Current Case Study</span>
+        </h3>
         {!showSaveDialog ? (
           <button
             onClick={() => setShowSaveDialog(true)}
-            className="w-full px-4 py-2 bg-orca-accent hover:bg-orca-accent-dark text-orca-dark font-medium rounded-md transition-colors"
+            className="w-full px-4 py-3 bg-gradient-to-r from-orca-accent to-orca-accent-dark hover:from-orca-accent-dark hover:to-orca-accent text-orca-dark font-semibold rounded-lg transition-all shadow-md hover:shadow-lg flex items-center justify-center space-x-2"
           >
-            Save Case Study
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+            </svg>
+            <span>Save Case Study</span>
           </button>
         ) : (
           <div className="space-y-3">
@@ -116,13 +124,13 @@ export default function PersistenceControls() {
               onChange={(e) => setSaveName(e.target.value)}
               onKeyPress={(e) => e.key === 'Enter' && handleSave()}
               placeholder="Enter a name for this case study"
-              className="w-full px-4 py-2 bg-orca-grey-1 border border-orca-grey-2 rounded-md text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent"
+              className="w-full px-4 py-3 bg-orca-grey-1/50 border border-orca-grey-2/50 rounded-lg text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent focus:border-orca-accent transition-all"
               autoFocus
             />
             <div className="flex space-x-2">
               <button
                 onClick={handleSave}
-                className="flex-1 px-4 py-2 bg-orca-accent hover:bg-orca-accent-dark text-orca-dark font-medium rounded-md transition-colors"
+                className="flex-1 px-4 py-3 bg-gradient-to-r from-orca-accent to-orca-accent-dark hover:from-orca-accent-dark hover:to-orca-accent text-orca-dark font-semibold rounded-lg transition-all shadow-md"
               >
                 Save
               </button>
@@ -131,7 +139,7 @@ export default function PersistenceControls() {
                   setShowSaveDialog(false);
                   setSaveName('');
                 }}
-                className="px-4 py-2 bg-orca-grey-1 hover:bg-orca-grey-2 text-orca-light rounded-md transition-colors"
+                className="px-4 py-3 bg-orca-grey-1/50 hover:bg-orca-grey-1 border border-orca-grey-2/50 text-orca-light rounded-lg transition-all font-medium"
               >
                 Cancel
               </button>
@@ -142,17 +150,23 @@ export default function PersistenceControls() {
 
       {/* Load Saved Config */}
       <div>
-        <h3 className="text-lg font-semibold text-orca-light mb-3">
-          Load Saved Case Study ({savedConfigs.length} saved)
+        <h3 className="text-lg font-semibold text-orca-light mb-3 flex items-center space-x-2">
+          <svg className="w-5 h-5 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          <span>Load Saved Case Study</span>
+          <span className="text-sm font-normal text-orca-grey-3">({savedConfigs.length} saved)</span>
         </h3>
         {savedConfigs.length === 0 ? (
-          <p className="text-sm text-orca-grey-3">No saved case studies yet</p>
+          <div className="p-4 bg-orca-grey-1/20 border border-orca-grey-2/50 rounded-lg text-center">
+            <p className="text-sm text-orca-grey-3">No saved case studies yet. Save your first one above!</p>
+          </div>
         ) : (
           <div className="space-y-3">
             <select
               value={selectedConfigId}
               onChange={(e) => setSelectedConfigId(e.target.value)}
-              className="w-full px-4 py-2 bg-orca-grey-1 border border-orca-grey-2 rounded-md text-orca-light focus:outline-none focus:ring-2 focus:ring-orca-accent"
+              className="w-full px-4 py-3 bg-orca-grey-1/50 border border-orca-grey-2/50 rounded-lg text-orca-light focus:outline-none focus:ring-2 focus:ring-orca-accent focus:border-orca-accent transition-all cursor-pointer"
             >
               <option value="">Select a saved case study...</option>
               {savedConfigs.map((saved) => (
@@ -165,14 +179,14 @@ export default function PersistenceControls() {
               <button
                 onClick={handleLoad}
                 disabled={!selectedConfigId}
-                className="flex-1 px-4 py-2 bg-orca-accent hover:bg-orca-accent-dark disabled:bg-orca-grey-2 disabled:text-orca-grey-3 text-orca-dark font-medium rounded-md transition-colors"
+                className="flex-1 px-4 py-3 bg-gradient-to-r from-orca-accent to-orca-accent-dark hover:from-orca-accent-dark hover:to-orca-accent disabled:from-orca-grey-2 disabled:to-orca-grey-2 disabled:text-orca-grey-3 text-orca-dark font-semibold rounded-lg transition-all shadow-md disabled:shadow-none"
               >
                 Load
               </button>
               <button
                 onClick={handleDelete}
                 disabled={!selectedConfigId}
-                className="px-4 py-2 bg-red-900/30 hover:bg-red-900/50 disabled:bg-orca-grey-2 disabled:text-orca-grey-3 text-red-400 font-medium rounded-md transition-colors"
+                className="px-4 py-3 bg-red-900/30 hover:bg-red-900/50 disabled:bg-orca-grey-2 disabled:text-orca-grey-3 text-red-400 font-semibold rounded-lg transition-all border border-red-700/50 disabled:border-transparent"
               >
                 Delete
               </button>
