@@ -39,13 +39,13 @@ export default function Sidebar() {
   };
 
   return (
-    <div className="w-full lg:w-[420px] h-screen lg:h-auto lg:flex-shrink-0 flex flex-col bg-[#141414] border-r border-[rgba(255,255,255,0.08)]">
+    <div className="w-full lg:w-[420px] h-screen lg:h-auto lg:flex-shrink-0 flex flex-col bg-[#1A1A1A] rounded-lg border border-[rgba(255,255,255,0.1)] shadow-xl overflow-hidden">
       {/* Sticky Header */}
-      <div className="sticky top-0 z-10 bg-[#141414] border-b border-[rgba(255,255,255,0.08)] p-6">
+      <div className="sticky top-0 z-10 bg-[#1A1A1A] border-b border-[rgba(255,255,255,0.1)] px-6 py-5">
         <div className="flex items-center justify-between mb-4">
-          <h1 className="text-[32px] font-bold text-white">Case Study Builder</h1>
+          <h1 className="text-[28px] font-bold text-white leading-tight">Case Study Builder</h1>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 mb-3">
           <Button
             variant="secondary"
             size="sm"
@@ -61,7 +61,7 @@ export default function Sidebar() {
 
       {/* Scrollable Content */}
       <div className="flex-1 overflow-y-auto">
-        <div className="p-6 space-y-6">
+        <div className="px-6 py-6 space-y-5">
           {/* Template Selector */}
           <div className="mb-6">
             <TemplateSelector />

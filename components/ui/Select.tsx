@@ -29,7 +29,7 @@ export default function Select({
       {label && (
         <label 
           htmlFor={selectId}
-          className="block text-[13px] text-[#B3B3B3] font-medium tracking-wider uppercase mb-2"
+          className="block text-[12px] text-[#CCCCCC] font-semibold tracking-wider uppercase mb-2"
         >
           {label}
         </label>
@@ -43,13 +43,13 @@ export default function Select({
         <select
           id={selectId}
           className={`
-            w-full bg-[#1E1E1E] border border-[rgba(255,255,255,0.08)] rounded-input
-            px-4 py-3 text-[15px] text-white
-            focus:outline-none focus:border-[#25C2D1] focus:shadow-focus
+            w-full bg-[#2A2A2A] border border-[rgba(255,255,255,0.12)] rounded-lg
+            px-4 py-2.5 text-[15px] text-white font-normal
+            focus:outline-none focus:border-[#25C2D1] focus:ring-2 focus:ring-[#25C2D1]/20
             transition-all duration-200 cursor-pointer
             appearance-none bg-[url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3E%3Cpath stroke='%23ffffff' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3E%3C/svg%3E")] bg-no-repeat bg-[length:20px] bg-[right_12px_center]
             ${icon ? 'pl-10' : ''}
-            ${error ? 'border-orca-danger' : ''}
+            ${error ? 'border-orca-danger focus:border-orca-danger focus:ring-orca-danger/20' : ''}
             ${className}
           `}
           {...props}

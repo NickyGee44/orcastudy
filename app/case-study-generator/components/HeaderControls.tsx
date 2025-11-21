@@ -12,7 +12,7 @@ export default function HeaderControls({ zoom, onZoomChange }: HeaderControlsPro
   const { config, updateField } = useCaseStudyConfig();
 
   return (
-    <div className="sticky top-0 z-10 bg-[#141414] border-b border-[rgba(255,255,255,0.08)] px-6 py-4">
+    <div className="sticky top-0 z-10 bg-[#1A1A1A] border-b border-[rgba(255,255,255,0.1)] px-6 py-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-6">
           <h2 className="text-[24px] font-semibold text-white">Preview</h2>

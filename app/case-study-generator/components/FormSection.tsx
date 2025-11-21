@@ -19,23 +19,23 @@ export default function FormSection({
   children,
 }: FormSectionProps) {
   return (
-    <Card padding="none" className="overflow-hidden border-[rgba(255,255,255,0.08)]">
+    <Card padding="none" className="overflow-hidden border-[rgba(255,255,255,0.12)] bg-[#1E1E1E]">
       <button
         onClick={onToggle}
-        className="w-full px-6 py-4 flex items-center justify-between text-left group hover:bg-[#1E1E1E] transition-colors duration-200"
+        className="w-full px-5 py-4 flex items-center justify-between text-left group hover:bg-[#252525] transition-colors duration-200 border-b border-[rgba(255,255,255,0.05)]"
       >
         <div className="flex-1">
-          <h3 className="text-[18px] font-semibold text-white mb-0.5">{title}</h3>
+          <h3 className="text-[16px] font-semibold text-white mb-1 leading-tight">{title}</h3>
           {subtitle && (
-            <p className="text-[13px] text-[#B3B3B3] uppercase tracking-wider">{subtitle}</p>
+            <p className="text-[12px] text-[#A0A0A0] uppercase tracking-wider">{subtitle}</p>
           )}
         </div>
-        <span className={`text-lg transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}>
+        <span className={`text-[14px] text-[#B3B3B3] transition-transform duration-200 flex-shrink-0 ml-3 ${isOpen ? 'rotate-180' : ''}`}>
           ▼
         </span>
       </button>
       {isOpen && (
-        <div className="px-6 py-6 bg-[#1E1E1E] animate-in slide-in-from-top-2 duration-200">
+        <div className="px-5 py-5 bg-[#252525] animate-in slide-in-from-top-2 duration-200">
           {children}
         </div>
       )}

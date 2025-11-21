@@ -25,7 +25,7 @@ export default function Input({
       {label && (
         <label 
           htmlFor={inputId}
-          className="block text-[13px] text-[#B3B3B3] font-medium tracking-wider uppercase mb-2"
+          className="block text-[12px] text-[#CCCCCC] font-semibold tracking-wider uppercase mb-2"
         >
           {label}
         </label>
@@ -39,13 +39,13 @@ export default function Input({
         <input
           id={inputId}
           className={`
-            w-full bg-[#1E1E1E] border border-[rgba(255,255,255,0.08)] rounded-input
-            px-4 py-3 text-[15px] text-white
-            placeholder:text-[#B3B3B3]
-            focus:outline-none focus:border-[#25C2D1] focus:shadow-focus
+            w-full bg-[#2A2A2A] border border-[rgba(255,255,255,0.12)] rounded-lg
+            px-4 py-2.5 text-[15px] text-white font-normal
+            placeholder:text-[#888888]
+            focus:outline-none focus:border-[#25C2D1] focus:ring-2 focus:ring-[#25C2D1]/20
             transition-all duration-200
             ${icon ? 'pl-10' : ''}
-            ${error ? 'border-orca-danger' : ''}
+            ${error ? 'border-orca-danger focus:border-orca-danger focus:ring-orca-danger/20' : ''}
             ${className}
           `}
           {...props}

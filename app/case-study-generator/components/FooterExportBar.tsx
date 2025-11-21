@@ -108,7 +108,7 @@ export default function FooterExportBar() {
   };
 
   return (
-    <div className="sticky bottom-0 z-10 bg-[#141414] border-t border-[rgba(255,255,255,0.08)] px-6 py-4">
+    <div className="sticky bottom-0 z-10 bg-[#1A1A1A] border-t border-[rgba(255,255,255,0.1)] px-6 py-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <span className="text-[13px] text-[#B3B3B3] uppercase tracking-wider">Export Quality</span>

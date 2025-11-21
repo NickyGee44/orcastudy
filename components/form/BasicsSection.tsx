@@ -28,7 +28,7 @@ export default function BasicsSection() {
   const { config, updateField, toggleService } = useCaseStudyConfig();
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-5">
       {/* Case Study Title */}
       <Input
         label="Case Study Title"
