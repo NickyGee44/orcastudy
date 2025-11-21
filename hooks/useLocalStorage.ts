@@ -8,20 +8,29 @@ export function useLocalStorage<T>(
   key: string,
   initialValue: T
 ): [T, (value: T | ((val: T) => T)) => void, () => void] {
-  // State to store our value
-  const [storedValue, setStoredValue] = useState<T>(() => {
+  // Always start with initialValue to prevent hydration mismatches
+  const [storedValue, setStoredValue] = useState<T>(initialValue);
+  const [isHydrated, setIsHydrated] = useState(false);
+
+  // Hydrate from localStorage after mount (client-side only)
+  useEffect(() => {
     if (typeof window === 'undefined') {
-      return initialValue;
+      setIsHydrated(true);
+      return;
     }
 
     try {
       const item = window.localStorage.getItem(key);
-      return item ? JSON.parse(item) : initialValue;
+      if (item) {
+        const parsed = JSON.parse(item);
+        setStoredValue(parsed);
+      }
     } catch (error) {
       console.error(`Error reading localStorage key "${key}":`, error);
-      return initialValue;
+    } finally {
+      setIsHydrated(true);
     }
-  });
+  }, [key]);
 
   // Return a wrapped version of useState's setter function that
   // persists the new value to localStorage.
