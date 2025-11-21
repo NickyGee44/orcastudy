@@ -10,12 +10,10 @@ export function useLocalStorage<T>(
 ): [T, (value: T | ((val: T) => T)) => void, () => void] {
   // Always start with initialValue to prevent hydration mismatches
   const [storedValue, setStoredValue] = useState<T>(initialValue);
-  const [isHydrated, setIsHydrated] = useState(false);
 
   // Hydrate from localStorage after mount (client-side only)
   useEffect(() => {
     if (typeof window === 'undefined') {
-      setIsHydrated(true);
       return;
     }
 
@@ -27,8 +25,6 @@ export function useLocalStorage<T>(
       }
     } catch (error) {
       console.error(`Error reading localStorage key "${key}":`, error);
-    } finally {
-      setIsHydrated(true);
     }
   }, [key]);
 
