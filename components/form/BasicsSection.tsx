@@ -2,6 +2,8 @@
 
 import { useCaseStudyConfig } from '@/hooks/useCaseStudyConfig';
 import { AVAILABLE_SERVICES } from '@/types/case-study';
+import Input from '@/components/ui/Input';
+import Select from '@/components/ui/Select';
 
 const INDUSTRIES = [
   'Manufacturing',
@@ -28,148 +30,81 @@ export default function BasicsSection() {
   return (
     <div className="space-y-5">
       {/* Case Study Title */}
-      <div>
-        <label htmlFor="title" className="block text-sm font-semibold text-orca-light mb-2 flex items-center space-x-2">
-          <span>Case Study Title</span>
-          <span className="text-red-400">*</span>
-        </label>
-        <input
-          type="text"
-          id="title"
-          value={config.title}
-          onChange={(e) => updateField('title', e.target.value)}
-          className="w-full px-4 py-3 bg-orca-grey-1/50 border border-orca-grey-2/50 rounded-lg text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent focus:border-orca-accent transition-all"
-          placeholder="e.g., Global Manufacturing Corp Achieves $8.1M in Annual Savings"
-        />
-        {!config.title && (
-          <p className="mt-2 text-xs text-yellow-400/80 flex items-center space-x-1">
-            <span className="inline-flex items-center justify-center w-4 h-4 flex-shrink-0" style={{ width: '16px', height: '16px', minWidth: '16px', minHeight: '16px', maxWidth: '16px', maxHeight: '16px' }}>
-              <svg className="w-full h-full" fill="currentColor" viewBox="0 0 20 20" style={{ width: '100%', height: '100%', display: 'block' }}>
-                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-            </span>
-            <span>This field is required</span>
-          </p>
-        )}
-        <p className="mt-1.5 text-xs text-orca-grey-3">Create a compelling headline that highlights the key achievement</p>
-      </div>
+      <Input
+        label="Case Study Title"
+        id="title"
+        type="text"
+        value={config.title}
+        onChange={(e) => updateField('title', e.target.value)}
+        placeholder="e.g., Global Manufacturing Corp Achieves $8.1M in Annual Savings"
+        error={!config.title ? 'This field is required' : undefined}
+        helperText="Create a compelling headline that highlights the key achievement"
+        required
+      />
 
       {/* Client Name */}
-      <div>
-        <label htmlFor="clientName" className="block text-sm font-semibold text-orca-light mb-2 flex items-center space-x-2">
-          <span>Client Name</span>
-          <span className="text-red-400">*</span>
-        </label>
-        <input
-          type="text"
-          id="clientName"
-          value={config.clientName}
-          onChange={(e) => updateField('clientName', e.target.value)}
-          className="w-full px-4 py-3 bg-orca-grey-1/50 border border-orca-grey-2/50 rounded-lg text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent focus:border-orca-accent transition-all"
-          placeholder="e.g., Global Manufacturing Corp"
-        />
-        {!config.clientName && (
-          <p className="mt-2 text-xs text-yellow-400/80 flex items-center space-x-1">
-            <span className="inline-flex items-center justify-center w-4 h-4 flex-shrink-0" style={{ width: '16px', height: '16px', minWidth: '16px', minHeight: '16px', maxWidth: '16px', maxHeight: '16px' }}>
-              <svg className="w-full h-full" fill="currentColor" viewBox="0 0 20 20" style={{ width: '100%', height: '100%', display: 'block' }}>
-                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-            </span>
-            <span>This field is required</span>
-          </p>
-        )}
-      </div>
+      <Input
+        label="Client Name"
+        id="clientName"
+        type="text"
+        value={config.clientName}
+        onChange={(e) => updateField('clientName', e.target.value)}
+        placeholder="e.g., Global Manufacturing Corp"
+        error={!config.clientName ? 'This field is required' : undefined}
+        required
+      />
 
       {/* Client Logo URL */}
-      <div>
-        <label htmlFor="clientLogoUrl" className="block text-sm font-semibold text-orca-light mb-2">
-          Client Logo URL <span className="text-xs font-normal text-orca-grey-3">(optional)</span>
-        </label>
-        <input
-          type="url"
-          id="clientLogoUrl"
-          value={config.clientLogoUrl || ''}
-          onChange={(e) => updateField('clientLogoUrl', e.target.value || undefined)}
-          className="w-full px-4 py-3 bg-orca-grey-1/50 border border-orca-grey-2/50 rounded-lg text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent focus:border-orca-accent transition-all"
-          placeholder="https://example.com/logo.png"
-        />
-        {config.clientLogoUrl && !isValidUrl(config.clientLogoUrl) && (
-          <p className="mt-2 text-xs text-yellow-400/80">Please enter a valid URL</p>
-        )}
-        <p className="mt-1.5 text-xs text-orca-grey-3">Add a direct link to the client's logo image for a professional touch</p>
-      </div>
+      <Input
+        label="Client Logo URL"
+        id="clientLogoUrl"
+        type="url"
+        value={config.clientLogoUrl || ''}
+        onChange={(e) => updateField('clientLogoUrl', e.target.value || undefined)}
+        placeholder="https://example.com/logo.png"
+        error={config.clientLogoUrl && !isValidUrl(config.clientLogoUrl) ? 'Please enter a valid URL' : undefined}
+        helperText="Add a direct link to the client's logo image for a professional touch"
+      />
 
       {/* Industry */}
-      <div>
-        <label htmlFor="industry" className="block text-sm font-semibold text-orca-light mb-2 flex items-center space-x-2">
-          <span>Industry</span>
-          <span className="text-red-400">*</span>
-        </label>
-        <select
-          id="industry"
-          value={config.industry}
-          onChange={(e) => updateField('industry', e.target.value)}
-          className="w-full px-4 py-3 bg-orca-grey-1/50 border border-orca-grey-2/50 rounded-lg text-orca-light focus:outline-none focus:ring-2 focus:ring-orca-accent focus:border-orca-accent transition-all cursor-pointer"
-        >
-          <option value="">Select an industry</option>
-          {INDUSTRIES.map((industry) => (
-            <option key={industry} value={industry}>
-              {industry}
-            </option>
-          ))}
-        </select>
-        {!config.industry && (
-          <p className="mt-2 text-xs text-yellow-400/80 flex items-center space-x-1">
-            <span className="inline-flex items-center justify-center w-4 h-4 flex-shrink-0" style={{ width: '16px', height: '16px', minWidth: '16px', minHeight: '16px', maxWidth: '16px', maxHeight: '16px' }}>
-              <svg className="w-full h-full" fill="currentColor" viewBox="0 0 20 20" style={{ width: '100%', height: '100%', display: 'block' }}>
-                <path fillRule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clipRule="evenodd" />
-              </svg>
-            </span>
-            <span>This field is required</span>
-          </p>
-        )}
-      </div>
+      <Select
+        label="Industry"
+        id="industry"
+        value={config.industry}
+        onChange={(e) => updateField('industry', e.target.value)}
+        options={[
+          { value: '', label: 'Select an industry' },
+          ...INDUSTRIES.map((industry) => ({ value: industry, label: industry })),
+        ]}
+        error={!config.industry ? 'This field is required' : undefined}
+        required
+      />
 
       {/* Region */}
-      <div>
-        <label htmlFor="region" className="block text-sm font-medium text-orca-light mb-2">
-          Region <span className="text-red-400">*</span>
-        </label>
-        <select
-          id="region"
-          value={config.region}
-          onChange={(e) => updateField('region', e.target.value)}
-          className="w-full px-4 py-2 bg-orca-grey-1 border border-orca-grey-2 rounded-md text-orca-light focus:outline-none focus:ring-2 focus:ring-orca-accent"
-        >
-          <option value="">Select a region</option>
-          {REGIONS.map((region) => (
-            <option key={region} value={region}>
-              {region}
-            </option>
-          ))}
-        </select>
-        {!config.region && (
-          <p className="mt-1 text-sm text-yellow-400">Region is required</p>
-        )}
-      </div>
+      <Select
+        label="Region"
+        id="region"
+        value={config.region}
+        onChange={(e) => updateField('region', e.target.value)}
+        options={[
+          { value: '', label: 'Select a region' },
+          ...REGIONS.map((region) => ({ value: region, label: region })),
+        ]}
+        error={!config.region ? 'This field is required' : undefined}
+        required
+      />
 
       {/* Time Period */}
-      <div>
-        <label htmlFor="timePeriod" className="block text-sm font-medium text-orca-light mb-2">
-          Time Period <span className="text-red-400">*</span>
-        </label>
-        <input
-          type="text"
-          id="timePeriod"
-          value={config.timePeriod}
-          onChange={(e) => updateField('timePeriod', e.target.value)}
-          className="w-full px-4 py-2 bg-orca-grey-1 border border-orca-grey-2 rounded-md text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent"
-          placeholder="e.g., 2023-2024"
-        />
-        {!config.timePeriod && (
-          <p className="mt-1 text-sm text-yellow-400">Time period is required</p>
-        )}
-      </div>
+      <Input
+        label="Time Period"
+        id="timePeriod"
+        type="text"
+        value={config.timePeriod}
+        onChange={(e) => updateField('timePeriod', e.target.value)}
+        placeholder="e.g., 2023-2024"
+        error={!config.timePeriod ? 'This field is required' : undefined}
+        required
+      />
 
       {/* Services Used */}
       <div>

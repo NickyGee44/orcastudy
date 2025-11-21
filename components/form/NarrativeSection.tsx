@@ -1,6 +1,8 @@
 'use client';
 
 import { useCaseStudyConfig } from '@/hooks/useCaseStudyConfig';
+import Textarea from '@/components/ui/Textarea';
+import Button from '@/components/ui/Button';
 
 export default function NarrativeSection() {
   const {
@@ -15,80 +17,53 @@ export default function NarrativeSection() {
     <div className="space-y-5">
       {/* Client Overview */}
       <div>
-        <label htmlFor="clientOverview" className="block text-sm font-semibold text-orca-light mb-2">
-          Client Overview
-        </label>
-        <textarea
+        <Textarea
+          label="Client Overview"
           id="clientOverview"
           value={config.clientOverview}
           onChange={(e) => updateField('clientOverview', e.target.value)}
           rows={3}
-          className="w-full px-4 py-3 bg-orca-grey-1/50 border border-orca-grey-2/50 rounded-lg text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent focus:border-orca-accent resize-y transition-all"
           placeholder="2-3 sentences describing the client and their business context..."
+          helperText={
+            config.clientOverview.length > 0 && config.clientOverview.length < 50
+              ? `Consider adding more detail (${config.clientOverview.length} characters)`
+              : `${config.clientOverview.length} characters`
+          }
         />
-        <div className="mt-2 flex items-center justify-between">
-          <p className="text-xs text-orca-grey-3">
-            {config.clientOverview.length} characters
-          </p>
-          {config.clientOverview.length > 0 && config.clientOverview.length < 50 && (
-            <p className="text-xs text-yellow-400/80">Consider adding more detail</p>
-          )}
-        </div>
       </div>
 
       {/* Challenge */}
-      <div>
-        <label htmlFor="challenge" className="block text-sm font-semibold text-orca-light mb-2">
-          Challenge
-        </label>
-        <textarea
-          id="challenge"
-          value={config.challenge}
-          onChange={(e) => updateField('challenge', e.target.value)}
-          rows={4}
-          className="w-full px-4 py-3 bg-orca-grey-1/50 border border-orca-grey-2/50 rounded-lg text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent focus:border-orca-accent resize-y transition-all"
-          placeholder="1 short paragraph describing the challenges the client faced..."
-        />
-        <p className="mt-2 text-xs text-orca-grey-3">
-          {config.challenge.length} characters
-        </p>
-      </div>
+      <Textarea
+        label="Challenge"
+        id="challenge"
+        value={config.challenge}
+        onChange={(e) => updateField('challenge', e.target.value)}
+        rows={4}
+        placeholder="1 short paragraph describing the challenges the client faced..."
+        helperText={`${config.challenge.length} characters`}
+      />
 
       {/* Orca Solution */}
-      <div>
-        <label htmlFor="solution" className="block text-sm font-semibold text-orca-light mb-2">
-          Orca Solution
-        </label>
-        <textarea
-          id="solution"
-          value={config.solution}
-          onChange={(e) => updateField('solution', e.target.value)}
-          rows={4}
-          className="w-full px-4 py-3 bg-orca-grey-1/50 border border-orca-grey-2/50 rounded-lg text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent focus:border-orca-accent resize-y transition-all"
-          placeholder="1 short paragraph describing how Orca solved the problem..."
-        />
-        <p className="mt-2 text-xs text-orca-grey-3">
-          {config.solution.length} characters
-        </p>
-      </div>
+      <Textarea
+        label="Orca Solution"
+        id="solution"
+        value={config.solution}
+        onChange={(e) => updateField('solution', e.target.value)}
+        rows={4}
+        placeholder="1 short paragraph describing how Orca solved the problem..."
+        helperText={`${config.solution.length} characters`}
+      />
 
       {/* Results Summary */}
-      <div>
-        <label htmlFor="resultsSummary" className="block text-sm font-semibold text-orca-light mb-2">
-          Results Summary
-        </label>
-        <textarea
-          id="resultsSummary"
-          value={config.resultsSummary}
-          onChange={(e) => updateField('resultsSummary', e.target.value)}
-          rows={3}
-          className="w-full px-4 py-3 bg-orca-grey-1/50 border border-orca-grey-2/50 rounded-lg text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent focus:border-orca-accent resize-y transition-all"
-          placeholder="2-3 sentences summarizing the results..."
-        />
-        <p className="mt-2 text-xs text-orca-grey-3">
-          {config.resultsSummary.length} characters
-        </p>
-      </div>
+      <Textarea
+        label="Results Summary"
+        id="resultsSummary"
+        value={config.resultsSummary}
+        onChange={(e) => updateField('resultsSummary', e.target.value)}
+        rows={3}
+        placeholder="2-3 sentences summarizing the results..."
+        helperText={`${config.resultsSummary.length} characters`}
+      />
 
       {/* Key Outcomes */}
       <div>
@@ -122,15 +97,17 @@ export default function NarrativeSection() {
                 placeholder={`Outcome ${index + 1}...`}
               />
               {config.outcomes.length > 3 && (
-                <button
+                <Button
+                  variant="ghost"
+                  size="sm"
                   onClick={() => removeOutcome(index)}
-                  className="px-2 py-2 text-red-400 hover:text-red-300 hover:bg-red-900/20 rounded-lg transition-all flex-shrink-0"
+                  className="px-2 py-2 text-red-400 hover:text-red-300 hover:bg-red-900/20 flex-shrink-0"
                   title="Remove outcome"
                 >
                   <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                   </svg>
-                </button>
+                </Button>
               )}
             </div>
           ))}
@@ -148,15 +125,17 @@ export default function NarrativeSection() {
           </div>
         )}
         {config.outcomes.length === 0 && (
-          <button
+          <Button
+            variant="secondary"
+            size="sm"
             onClick={addOutcome}
-            className="mt-3 w-full max-w-xs px-4 py-2 bg-orca-grey-1/50 border border-orca-grey-2/50 rounded-lg text-orca-light hover:bg-orca-grey-1 hover:border-orca-accent/50 transition-all flex items-center justify-center space-x-2 font-medium text-sm"
+            className="mt-3 w-full max-w-xs"
           >
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4v16m8-8H4" />
             </svg>
             <span>Add First Outcome</span>
-          </button>
+          </Button>
         )}
       </div>
 

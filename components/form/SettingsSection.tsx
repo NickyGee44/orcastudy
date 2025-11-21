@@ -1,6 +1,8 @@
 'use client';
 
 import { useCaseStudyConfig } from '@/hooks/useCaseStudyConfig';
+import Switch from '@/components/ui/Switch';
+import Select from '@/components/ui/Select';
 
 export default function SettingsSection() {
   const { config, updateField } = useCaseStudyConfig();
@@ -42,41 +44,23 @@ export default function SettingsSection() {
       </div>
 
       {/* Show Orca Footer Toggle */}
-      <div>
-        <label className="flex items-center space-x-3 cursor-pointer">
-          <input
-            type="checkbox"
-            checked={config.showOrcaFooter}
-            onChange={(e) => updateField('showOrcaFooter', e.target.checked)}
-            className="w-5 h-5 text-orca-accent bg-orca-grey-1 border-orca-grey-2 rounded focus:ring-orca-accent"
-          />
-          <div>
-            <span className="text-orca-light font-medium">Show Orca Footer</span>
-            <p className="text-xs text-orca-grey-3 mt-1">
-              Display the Orca contact information and CTA footer in the case study
-            </p>
-          </div>
-        </label>
-      </div>
+      <Switch
+        checked={config.showOrcaFooter}
+        onChange={(e) => updateField('showOrcaFooter', e.target.checked)}
+        label="Show Orca Footer"
+        description="Display the Orca contact information and CTA footer in the case study"
+      />
 
       {/* Template Variant */}
-      <div>
-        <label htmlFor="templateVariant" className="block text-sm font-medium text-orca-light mb-2">
-          Template Variant
-        </label>
-        <select
-          id="templateVariant"
-          value={config.templateVariant}
-          onChange={(e) => updateField('templateVariant', e.target.value as 'v1')}
-          className="w-full px-4 py-2 bg-orca-grey-1 border border-orca-grey-2 rounded-md text-orca-light focus:outline-none focus:ring-2 focus:ring-orca-accent"
-          disabled
-        >
-          <option value="v1">Version 1 (Default)</option>
-        </select>
-        <p className="mt-2 text-xs text-orca-grey-3">
-          Additional template variants will be available in future updates
-        </p>
-      </div>
+      <Select
+        label="Template Variant"
+        id="templateVariant"
+        value={config.templateVariant}
+        onChange={(e) => updateField('templateVariant', e.target.value as 'v1')}
+        options={[{ value: 'v1', label: 'Version 1 (Default)' }]}
+        helperText="Additional template variants will be available in future updates"
+        disabled
+      />
     </div>
   );
 }
