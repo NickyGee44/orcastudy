@@ -203,50 +203,38 @@ export default function NarrativeSection() {
       </div>
 
       {/* Call to Action */}
-      <div className="border-t border-orca-grey-1 pt-6">
-        <h3 className="text-lg font-semibold text-orca-light mb-4">Call to Action</h3>
+      <div className="border-t border-white/6 pt-6">
+        <h3 className="text-h3 font-bold text-orca-light mb-4">Call to Action</h3>
         
         <div className="space-y-4">
-          <div>
-            <label htmlFor="ctaText" className="block text-sm font-medium text-orca-light mb-2">
-              CTA Text
-            </label>
-            <input
-              type="text"
-              id="ctaText"
-              value={config.callToAction?.text || ''}
-              onChange={(e) =>
-                updateField('callToAction', {
-                  ...config.callToAction,
-                  text: e.target.value,
-                } as any)
-              }
-              className="w-full px-4 py-2 bg-orca-grey-1 border border-orca-grey-2 rounded-md text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent"
-              placeholder="Get a free freight analysis"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="ctaUrl" className="block text-sm font-medium text-orca-light mb-2">
-              CTA URL (optional)
-            </label>
-            <input
-              type="url"
-              id="ctaUrl"
-              value={config.callToAction?.url || ''}
-              onChange={(e) =>
-                updateField('callToAction', {
-                  ...config.callToAction,
-                  url: e.target.value || undefined,
-                } as any)
-              }
-              className="w-full px-4 py-2 bg-orca-grey-1 border border-orca-grey-2 rounded-md text-orca-light placeholder-orca-grey-3 focus:outline-none focus:ring-2 focus:ring-orca-accent"
-              placeholder="https://orcaaudit.com"
-            />
-            {config.callToAction?.url && !isValidUrl(config.callToAction.url) && (
-              <p className="mt-1 text-sm text-yellow-400">Please enter a valid URL</p>
-            )}
-          </div>
+          <Input
+            label="CTA Text"
+            id="ctaText"
+            type="text"
+            value={config.callToAction?.text || ''}
+            onChange={(e) =>
+              updateField('callToAction', {
+                ...config.callToAction,
+                text: e.target.value,
+              } as any)
+            }
+            placeholder="Get a free freight analysis"
+          />
+          <Input
+            label="CTA URL"
+            id="ctaUrl"
+            type="url"
+            value={config.callToAction?.url || ''}
+            onChange={(e) =>
+              updateField('callToAction', {
+                ...config.callToAction,
+                url: e.target.value || undefined,
+              } as any)
+            }
+            placeholder="https://orcaaudit.com"
+            error={config.callToAction?.url && !isValidUrl(config.callToAction.url) ? 'Please enter a valid URL' : undefined}
+            helperText="Optional URL for the call to action button"
+          />
         </div>
       </div>
     </div>
