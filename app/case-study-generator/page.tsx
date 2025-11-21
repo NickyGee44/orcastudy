@@ -8,28 +8,27 @@ export default function CaseStudyGenerator() {
   const [isPreviewOpen, setIsPreviewOpen] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-orca-darker via-orca-dark to-orca-dark text-orca-light" style={{
-      backgroundImage: 'radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.1) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(59, 130, 246, 0.1) 0px, transparent 50%)'
+    <div className="min-h-screen bg-gradient-to-br from-orca-charcoal via-orca-deep-grey to-orca-charcoal text-orca-light" style={{
+      backgroundImage: 'radial-gradient(at 0% 0%, rgba(37, 194, 209, 0.08) 0px, transparent 50%), radial-gradient(at 100% 0%, rgba(37, 194, 209, 0.08) 0px, transparent 50%)'
     }}>
       {/* Full-width form layout */}
       <div className="h-screen flex flex-col">
-        {/* Form - Full width */}
-        <div className="flex-1 overflow-y-auto bg-gradient-to-b from-orca-dark to-orca-darker/50">
+        {/* Form - Full width with consistent spacing */}
+        <div className="flex-1 overflow-y-auto bg-gradient-to-b from-orca-deep-grey to-orca-charcoal">
           <CaseStudyForm />
         </div>
 
-        {/* Preview Button - Sticky at bottom */}
-        <div className="sticky bottom-0 p-4 bg-gradient-to-t from-orca-dark/98 via-orca-dark/95 to-transparent backdrop-blur-md border-t border-orca-purple/20 shadow-2xl">
+        {/* Preview Button - Sticky at bottom with premium styling */}
+        <div className="sticky bottom-0 p-6 bg-gradient-to-t from-orca-charcoal/98 via-orca-deep-grey/95 to-transparent backdrop-blur-md border-t border-white/6 shadow-2xl">
           <div className="max-w-4xl mx-auto w-full flex justify-center px-4 sm:px-6 lg:px-8">
             <button
               type="button"
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                console.log('Preview button clicked');
                 setIsPreviewOpen(true);
               }}
-              className="w-full max-w-sm px-6 py-3.5 bg-gradient-to-r from-orca-purple via-orca-blue to-orca-purple hover:from-orca-purple-dark hover:via-orca-blue-dark hover:to-orca-purple-dark text-orca-light font-bold rounded-xl transition-all shadow-lg hover:shadow-2xl hover:scale-[1.02] flex items-center justify-center space-x-3 text-sm cursor-pointer"
+              className="w-full max-w-sm px-6 py-3.5 bg-gradient-to-r from-orca-accent to-orca-accent-secondary hover:from-orca-accent-dark hover:to-orca-accent text-orca-black font-semibold rounded-button transition-all duration-200 shadow-button hover:shadow-button-hover hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-3 text-body cursor-pointer"
             >
               <svg className="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2.5} style={{ width: '20px', height: '20px', flexShrink: 0 }}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />

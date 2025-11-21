@@ -22,19 +22,20 @@ export default function CaseStudyPreview() {
   }, []);
 
   const themeClasses = config.theme === 'dark' 
-    ? 'bg-orca-darker text-orca-light' 
-    : 'bg-orca-light text-orca-dark';
+    ? 'bg-orca-charcoal text-orca-light' 
+    : 'bg-orca-white text-orca-black';
 
   return (
     <div className="flex items-center justify-center min-h-full p-3 md:p-6">
       <div
         ref={previewRef}
-        className={`${themeClasses} rounded-lg shadow-2xl`}
+        data-export-target
+        className={`${themeClasses} rounded-card shadow-2xl`}
         style={{
           width: '100%',
           maxWidth: '850px',
           aspectRatio: '850 / 1100',
-          padding: 'clamp(30px, 4vw, 60px)',
+          padding: 'clamp(40px, 5vw, 70px)',
           boxSizing: 'border-box',
         }}
       >

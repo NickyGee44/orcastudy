@@ -35,47 +35,47 @@ export default function CaseStudyForm() {
   };
 
   return (
-    <div className="h-full overflow-y-auto bg-gradient-to-b from-orca-dark via-orca-dark to-orca-darker">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-5">
+    <div className="h-full overflow-y-auto bg-gradient-to-b from-orca-deep-grey via-orca-deep-grey to-orca-charcoal">
+      <div className="max-w-4xl mx-auto px-6 sm:px-8 lg:px-10 py-8 space-y-6">
         {/* Welcome Header */}
-        <div className="mb-6 pb-6 border-b border-gradient-to-r from-orca-purple/30 via-orca-blue/30 to-transparent bg-gradient-to-r from-orca-purple/5 via-orca-blue/5 to-transparent rounded-xl p-5">
-          <div className="flex items-center space-x-3 mb-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-orca-purple/30 to-orca-blue/30 flex items-center justify-center flex-shrink-0 shadow-lg">
-              <span className="inline-flex items-center justify-center w-5 h-5 flex-shrink-0 text-orca-light" style={{ width: '20px', height: '20px', minWidth: '20px', minHeight: '20px', maxWidth: '20px', maxHeight: '20px' }}>
+        <Card padding="lg" className="mb-8 border-white/6">
+          <div className="flex items-center space-x-4 mb-6">
+            <div className="w-12 h-12 rounded-card bg-gradient-to-br from-orca-accent/20 to-orca-accent-secondary/20 flex items-center justify-center flex-shrink-0 shadow-card">
+              <span className="inline-flex items-center justify-center w-6 h-6 flex-shrink-0 text-orca-accent" style={{ width: '24px', height: '24px', minWidth: '24px', minHeight: '24px', maxWidth: '24px', maxHeight: '24px' }}>
                 <svg className="w-full h-full" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2} style={{ width: '100%', height: '100%', display: 'block' }}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </span>
             </div>
             <div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-orca-light to-orca-grey-3 bg-clip-text text-transparent">
+              <h1 className="text-h1 font-bold text-transparent bg-clip-text bg-gradient-to-r from-orca-light to-orca-accent-secondary">
                 Case Study Generator
               </h1>
-              <p className="text-orca-grey-3 text-sm mt-1">
+              <p className="text-caption text-orca-grey-3 mt-1.5">
                 Create professional case studies in minutes
               </p>
             </div>
           </div>
-          <div className="mt-4 p-4 bg-gradient-to-r from-orca-purple/10 to-orca-blue/10 border border-orca-purple/30 rounded-lg">
-            <p className="text-sm text-orca-light/90 flex items-start space-x-2">
-              <svg className="w-4 h-4 text-orca-purple mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
+          <div className="p-4 bg-gradient-to-r from-orca-accent/10 to-orca-accent-secondary/10 border border-orca-accent/20 rounded-input">
+            <p className="text-body text-orca-light/90 flex items-start space-x-2">
+              <svg className="w-4 h-4 text-orca-accent mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
               </svg>
-              <span><strong className="text-orca-purple-light">Tip:</strong> Fill out the form sections below. Start with basics, select your metrics, then add narrative content. Click "Preview Case Study" when ready.</span>
+              <span><strong className="text-orca-accent">Tip:</strong> Fill out the form sections below. Start with basics, select your metrics, then add narrative content. Click "Preview Case Study" when ready.</span>
             </p>
           </div>
-          <div className="mt-4">
+          <div className="mt-6">
             <ProgressIndicator />
           </div>
-        </div>
+        </Card>
 
         {/* Template Selector */}
-        <div className="mb-6">
+        <div className="mb-8">
           <TemplateSelector />
         </div>
 
         {/* Case Study Basics Section */}
-        <div className="border-2 border-orca-grey-1/30 rounded-xl overflow-hidden bg-gradient-to-br from-orca-grey-1/10 to-orca-grey-1/5 backdrop-blur-sm shadow-lg hover:shadow-xl hover:border-orca-purple/30 transition-all">
+        <Card padding="none" className="overflow-hidden border-white/6 shadow-card hover:shadow-lg transition-shadow duration-200">
           <button
             onClick={() => toggleSection('basics')}
             className={`w-full px-5 py-4 bg-gradient-to-r transition-all flex items-center justify-between text-left group ${
@@ -104,14 +104,14 @@ export default function CaseStudyForm() {
             </span>
           </button>
           {sections.basics && (
-            <div className="p-6 bg-orca-dark/30 animate-in slide-in-from-top-2 duration-200">
+            <div className="p-6 bg-orca-charcoal/30 animate-in slide-in-from-top-2 duration-200">
               <BasicsSection />
             </div>
           )}
         </div>
 
-        {/* Metrics & KPIs Section */}
-        <div className="border-2 border-orca-grey-1/30 rounded-xl overflow-hidden bg-gradient-to-br from-orca-grey-1/10 to-orca-grey-1/5 backdrop-blur-sm shadow-lg hover:shadow-xl hover:border-orca-purple/30 transition-all">
+                {/* Metrics & KPIs Section */}
+                <Card padding="none" className="overflow-hidden border-white/6 shadow-card hover:shadow-lg transition-shadow duration-200">
           <button
             onClick={() => toggleSection('metrics')}
             className={`w-full px-5 py-4 bg-gradient-to-r transition-all flex items-center justify-between text-left group ${
@@ -140,14 +140,14 @@ export default function CaseStudyForm() {
             </span>
           </button>
           {sections.metrics && (
-            <div className="p-6 bg-orca-dark/30 animate-in slide-in-from-top-2 duration-200">
+            <div className="p-6 bg-orca-charcoal/30 animate-in slide-in-from-top-2 duration-200">
               <MetricsSection />
             </div>
           )}
         </div>
 
-        {/* Narrative Sections */}
-        <div className="border-2 border-orca-grey-1/30 rounded-xl overflow-hidden bg-gradient-to-br from-orca-grey-1/10 to-orca-grey-1/5 backdrop-blur-sm shadow-lg hover:shadow-xl hover:border-orca-purple/30 transition-all">
+                {/* Narrative Sections */}
+                <Card padding="none" className="overflow-hidden border-white/6 shadow-card hover:shadow-lg transition-shadow duration-200">
           <button
             onClick={() => toggleSection('narrative')}
             className={`w-full px-5 py-4 bg-gradient-to-r transition-all flex items-center justify-between text-left group ${
@@ -176,14 +176,14 @@ export default function CaseStudyForm() {
             </span>
           </button>
           {sections.narrative && (
-            <div className="p-6 bg-orca-dark/30 animate-in slide-in-from-top-2 duration-200">
+            <div className="p-6 bg-orca-charcoal/30 animate-in slide-in-from-top-2 duration-200">
               <NarrativeSection />
             </div>
           )}
         </div>
 
-        {/* Settings Section */}
-        <div className="border-2 border-orca-grey-1/30 rounded-xl overflow-hidden bg-gradient-to-br from-orca-grey-1/10 to-orca-grey-1/5 backdrop-blur-sm shadow-lg hover:shadow-xl hover:border-orca-purple/30 transition-all">
+                {/* Settings Section */}
+                <Card padding="none" className="overflow-hidden border-white/6 shadow-card hover:shadow-lg transition-shadow duration-200">
           <button
             onClick={() => toggleSection('settings')}
             className={`w-full px-5 py-4 bg-gradient-to-r transition-all flex items-center justify-between text-left group ${
@@ -213,14 +213,14 @@ export default function CaseStudyForm() {
             </span>
           </button>
           {sections.settings && (
-            <div className="p-6 bg-orca-dark/30 animate-in slide-in-from-top-2 duration-200">
+            <div className="p-6 bg-orca-charcoal/30 animate-in slide-in-from-top-2 duration-200">
               <SettingsSection />
             </div>
           )}
         </div>
 
-        {/* Persistence Controls */}
-        <div className="border-2 border-orca-grey-1/30 rounded-xl overflow-hidden bg-gradient-to-br from-orca-grey-1/10 to-orca-grey-1/5 backdrop-blur-sm shadow-lg hover:shadow-xl hover:border-orca-purple/30 transition-all">
+                {/* Persistence Controls */}
+                <Card padding="none" className="overflow-hidden border-white/6 shadow-card hover:shadow-lg transition-shadow duration-200">
           <button
             onClick={() => toggleSection('persistence')}
             className={`w-full px-5 py-4 bg-gradient-to-r transition-all flex items-center justify-between text-left group ${
@@ -249,7 +249,7 @@ export default function CaseStudyForm() {
             </span>
           </button>
           {sections.persistence && (
-            <div className="p-6 bg-orca-dark/30 animate-in slide-in-from-top-2 duration-200">
+            <div className="p-6 bg-orca-charcoal/30 animate-in slide-in-from-top-2 duration-200">
               <PersistenceControls />
             </div>
           )}
