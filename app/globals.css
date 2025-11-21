@@ -61,3 +61,20 @@ html {
   animation: slide-in-from-top 0.2s ease-out;
 }
 
+/* Prevent SVG expansion - force constrained sizing */
+svg {
+  flex-shrink: 0 !important;
+  display: inline-block;
+}
+
+/* Ensure width/height classes are respected */
+svg.w-3\.5,
+svg.h-3\.5,
+svg[class*="w-3.5"],
+svg[class*="h-3.5"] {
+  width: 0.875rem !important;
+  height: 0.875rem !important;
+  max-width: 0.875rem !important;
+  max-height: 0.875rem !important;
+}
+
