@@ -177,21 +177,52 @@ export default function BasicsSection() {
           Services Used
         </label>
         <p className="text-xs text-orca-grey-3 mb-3">Select all services that were used in this case study</p>
-        <div className="space-y-2">
-          {AVAILABLE_SERVICES.map((service) => (
-            <label
-              key={service}
-              className="flex items-center space-x-3 cursor-pointer hover:bg-orca-grey-1/30 p-3 rounded-lg border border-transparent hover:border-orca-grey-2/50 transition-all group"
-            >
-              <input
-                type="checkbox"
-                checked={config.servicesUsed.includes(service)}
-                onChange={() => toggleService(service)}
-                className="w-5 h-5 text-orca-accent bg-orca-grey-1/50 border-orca-grey-2 rounded focus:ring-orca-accent focus:ring-2 cursor-pointer"
-              />
-              <span className="text-orca-light group-hover:text-orca-accent transition-colors">{service}</span>
-            </label>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          {AVAILABLE_SERVICES.map((service) => {
+            const isSelected = config.servicesUsed.includes(service);
+            return (
+              <label
+                key={service}
+                className={`
+                  flex items-center space-x-3 cursor-pointer p-4 rounded-xl border-2 transition-all
+                  ${isSelected
+                    ? 'border-orca-purple bg-gradient-to-br from-orca-purple/20 to-orca-blue/20 shadow-md'
+                    : 'border-orca-grey-1/50 bg-orca-grey-1/10 hover:border-orca-grey-2/50 hover:bg-orca-grey-1/20'
+                  }
+                `}
+              >
+                <div className="relative flex-shrink-0">
+                  <input
+                    type="checkbox"
+                    checked={isSelected}
+                    onChange={() => toggleService(service)}
+                    className="sr-only"
+                  />
+                  <div className={`
+                    w-6 h-6 rounded-lg border-2 flex items-center justify-center transition-all
+                    ${isSelected
+                      ? 'border-orca-purple bg-orca-purple shadow-md'
+                      : 'border-orca-grey-2 bg-orca-grey-1/50'
+                    }
+                  `}>
+                    {isSelected && (
+                      <svg className="w-4 h-4 text-orca-light" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                      </svg>
+                    )}
+                  </div>
+                </div>
+                <span className={`font-medium text-sm transition-colors ${isSelected ? 'text-orca-light' : 'text-orca-grey-3'}`}>
+                  {service}
+                </span>
+                {isSelected && (
+                  <div className="ml-auto">
+                    <div className="w-2 h-2 rounded-full bg-orca-purple animate-pulse"></div>
+                  </div>
+                )}
+              </label>
+            );
+          })}
         </div>
       </div>
     </div>

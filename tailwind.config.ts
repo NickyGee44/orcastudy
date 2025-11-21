@@ -18,6 +18,13 @@ const config: Config = {
         'orca-grey-1': '#2a2a2a',
         'orca-grey-2': '#4a4a4a',
         'orca-grey-3': '#6a6a6a',
+        // Enhanced accent colors (purple and blue)
+        'orca-purple': '#8b5cf6',
+        'orca-purple-dark': '#7c3aed',
+        'orca-purple-light': '#a78bfa',
+        'orca-blue': '#3b82f6',
+        'orca-blue-dark': '#2563eb',
+        'orca-blue-light': '#60a5fa',
       },
       fontFamily: {
         sans: ['Lato', 'system-ui', 'sans-serif'],
