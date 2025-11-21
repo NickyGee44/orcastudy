@@ -38,15 +38,15 @@ export default function CaseStudyForm() {
       <div className="p-6 space-y-4">
         {/* Welcome Header */}
         <div className="mb-6 pb-6 border-b border-orca-grey-1/50">
-          <div className="flex items-center space-x-3 mb-3">
-            <div className="w-10 h-10 rounded-lg bg-orca-accent/20 flex items-center justify-center">
-              <svg className="w-6 h-6 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <div className="flex items-center space-x-2 mb-3">
+            <div className="w-8 h-8 rounded-lg bg-orca-accent/20 flex items-center justify-center flex-shrink-0">
+              <svg className="w-4 h-4 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
             <div>
-              <h1 className="text-2xl font-bold text-orca-light">Case Study Generator</h1>
-              <p className="text-orca-grey-3 text-sm mt-1">
+              <h1 className="text-xl font-bold text-orca-light">Case Study Generator</h1>
+              <p className="text-orca-grey-3 text-xs mt-0.5">
                 Create professional case studies in minutes
               </p>
             </div>
@@ -66,17 +66,17 @@ export default function CaseStudyForm() {
         <div className="border border-orca-grey-1/50 rounded-xl overflow-hidden bg-orca-grey-1/20 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
           <button
             onClick={() => toggleSection('basics')}
-            className="w-full px-5 py-4 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
+            className="w-full px-4 py-3 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
           >
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 rounded-lg bg-orca-accent/20 flex items-center justify-center group-hover:bg-orca-accent/30 transition-colors">
-                <svg className="w-4 h-4 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center space-x-2">
+              <div className="w-5 h-5 rounded bg-orca-accent/20 flex items-center justify-center group-hover:bg-orca-accent/30 transition-colors flex-shrink-0">
+                <svg className="w-3 h-3 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </div>
-              <h2 className="text-lg font-semibold text-orca-light">Case Study Basics</h2>
+              <h2 className="text-base font-semibold text-orca-light">Case Study Basics</h2>
             </div>
-            <span className="text-orca-grey-3 group-hover:text-orca-accent transition-colors">
+            <span className="text-orca-grey-3 group-hover:text-orca-accent transition-colors text-sm">
               {sections.basics ? '▼' : '▶'}
             </span>
           </button>
@@ -91,17 +91,17 @@ export default function CaseStudyForm() {
         <div className="border border-orca-grey-1/50 rounded-xl overflow-hidden bg-orca-grey-1/20 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
           <button
             onClick={() => toggleSection('metrics')}
-            className="w-full px-5 py-4 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
+            className="w-full px-4 py-3 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
           >
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 rounded-lg bg-orca-accent/20 flex items-center justify-center group-hover:bg-orca-accent/30 transition-colors">
-                <svg className="w-4 h-4 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center space-x-2">
+              <div className="w-5 h-5 rounded bg-orca-accent/20 flex items-center justify-center group-hover:bg-orca-accent/30 transition-colors flex-shrink-0">
+                <svg className="w-3 h-3 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
                 </svg>
               </div>
-              <h2 className="text-lg font-semibold text-orca-light">Metrics & KPIs</h2>
+              <h2 className="text-base font-semibold text-orca-light">Metrics & KPIs</h2>
             </div>
-            <span className="text-orca-grey-3 group-hover:text-orca-accent transition-colors">
+            <span className="text-orca-grey-3 group-hover:text-orca-accent transition-colors text-sm">
               {sections.metrics ? '▼' : '▶'}
             </span>
           </button>
@@ -116,17 +116,17 @@ export default function CaseStudyForm() {
         <div className="border border-orca-grey-1/50 rounded-xl overflow-hidden bg-orca-grey-1/20 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
           <button
             onClick={() => toggleSection('narrative')}
-            className="w-full px-5 py-4 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
+            className="w-full px-4 py-3 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
           >
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 rounded-lg bg-orca-accent/20 flex items-center justify-center group-hover:bg-orca-accent/30 transition-colors">
-                <svg className="w-4 h-4 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center space-x-2">
+              <div className="w-5 h-5 rounded bg-orca-accent/20 flex items-center justify-center group-hover:bg-orca-accent/30 transition-colors flex-shrink-0">
+                <svg className="w-3 h-3 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                 </svg>
               </div>
-              <h2 className="text-lg font-semibold text-orca-light">Narrative Content</h2>
+              <h2 className="text-base font-semibold text-orca-light">Narrative Content</h2>
             </div>
-            <span className="text-orca-grey-3 group-hover:text-orca-accent transition-colors">
+            <span className="text-orca-grey-3 group-hover:text-orca-accent transition-colors text-sm">
               {sections.narrative ? '▼' : '▶'}
             </span>
           </button>
@@ -141,18 +141,18 @@ export default function CaseStudyForm() {
         <div className="border border-orca-grey-1/50 rounded-xl overflow-hidden bg-orca-grey-1/20 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
           <button
             onClick={() => toggleSection('settings')}
-            className="w-full px-5 py-4 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
+            className="w-full px-4 py-3 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
           >
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 rounded-lg bg-orca-accent/20 flex items-center justify-center group-hover:bg-orca-accent/30 transition-colors">
-                <svg className="w-4 h-4 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center space-x-2">
+              <div className="w-5 h-5 rounded bg-orca-accent/20 flex items-center justify-center group-hover:bg-orca-accent/30 transition-colors flex-shrink-0">
+                <svg className="w-3 h-3 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                 </svg>
               </div>
-              <h2 className="text-lg font-semibold text-orca-light">Settings</h2>
+              <h2 className="text-base font-semibold text-orca-light">Settings</h2>
             </div>
-            <span className="text-orca-grey-3 group-hover:text-orca-accent transition-colors">
+            <span className="text-orca-grey-3 group-hover:text-orca-accent transition-colors text-sm">
               {sections.settings ? '▼' : '▶'}
             </span>
           </button>
@@ -167,17 +167,17 @@ export default function CaseStudyForm() {
         <div className="border border-orca-grey-1/50 rounded-xl overflow-hidden bg-orca-grey-1/20 backdrop-blur-sm shadow-sm hover:shadow-md transition-shadow">
           <button
             onClick={() => toggleSection('persistence')}
-            className="w-full px-5 py-4 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
+            className="w-full px-4 py-3 bg-gradient-to-r from-orca-grey-1/50 to-orca-grey-1/30 hover:from-orca-grey-1/70 hover:to-orca-grey-1/50 transition-all flex items-center justify-between text-left group"
           >
-            <div className="flex items-center space-x-3">
-              <div className="w-8 h-8 rounded-lg bg-orca-accent/20 flex items-center justify-center group-hover:bg-orca-accent/30 transition-colors">
-                <svg className="w-4 h-4 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="flex items-center space-x-2">
+              <div className="w-5 h-5 rounded bg-orca-accent/20 flex items-center justify-center group-hover:bg-orca-accent/30 transition-colors flex-shrink-0">
+                <svg className="w-3 h-3 text-orca-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4" />
                 </svg>
               </div>
-              <h2 className="text-lg font-semibold text-orca-light">Save & Load</h2>
+              <h2 className="text-base font-semibold text-orca-light">Save & Load</h2>
             </div>
-            <span className="text-orca-grey-3 group-hover:text-orca-accent transition-colors">
+            <span className="text-orca-grey-3 group-hover:text-orca-accent transition-colors text-sm">
               {sections.persistence ? '▼' : '▶'}
             </span>
           </button>

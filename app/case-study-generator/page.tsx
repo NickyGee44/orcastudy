@@ -1,52 +1,38 @@
 'use client';
 
+import { useState } from 'react';
 import CaseStudyForm from '@/components/form/CaseStudyForm';
-import CaseStudyPreview from '@/components/preview/CaseStudyPreview';
-import ExportButtons from '@/components/export/ExportButtons';
+import PreviewLightbox from '@/components/preview/PreviewLightbox';
 
 export default function CaseStudyGenerator() {
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-orca-dark via-orca-dark to-orca-darker text-orca-light">
-      {/* Desktop: Side-by-side layout */}
-      <div className="hidden md:flex h-screen">
-        {/* Left Panel - Input Form */}
-        <div className="w-1/2 border-r border-orca-grey-1/30 overflow-hidden bg-gradient-to-b from-orca-dark to-orca-darker/50">
+      {/* Full-width form layout */}
+      <div className="h-screen flex flex-col">
+        {/* Form - Full width */}
+        <div className="flex-1 overflow-y-auto bg-gradient-to-b from-orca-dark to-orca-darker/50">
           <CaseStudyForm />
         </div>
 
-        {/* Right Panel - Preview */}
-        <div className="w-1/2 overflow-y-auto bg-gradient-to-b from-orca-darker to-orca-dark flex flex-col">
-          <div className="flex-1 p-6">
-            <div className="mb-4 pb-4 border-b border-orca-grey-1/30">
-              <h2 className="text-lg font-semibold text-orca-light mb-1">Live Preview</h2>
-              <p className="text-xs text-orca-grey-3">See your case study update in real-time</p>
-            </div>
-            <CaseStudyPreview />
-          </div>
-          {/* Export Buttons - Sticky at bottom, compact toolbar */}
-          <div className="sticky bottom-0 bg-orca-darker/95 backdrop-blur-sm border-t border-orca-grey-1/30 p-2 shadow-lg">
-            <ExportButtons />
-          </div>
+        {/* Preview Button - Sticky at bottom */}
+        <div className="sticky bottom-0 p-4 bg-orca-dark/95 backdrop-blur-sm border-t border-orca-grey-1/30 shadow-lg">
+          <button
+            onClick={() => setIsPreviewOpen(true)}
+            className="w-full px-6 py-3 bg-gradient-to-r from-orca-accent to-orca-accent-dark hover:from-orca-accent-dark hover:to-orca-accent text-orca-dark font-semibold rounded-lg transition-all shadow-md hover:shadow-lg flex items-center justify-center space-x-2"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+            </svg>
+            <span>Preview Case Study</span>
+          </button>
         </div>
       </div>
 
-      {/* Mobile: Stacked layout */}
-      <div className="md:hidden flex flex-col h-screen">
-        {/* Form on top */}
-        <div className="flex-1 overflow-y-auto border-b border-orca-grey-1">
-          <CaseStudyForm />
-        </div>
-
-        {/* Preview in middle */}
-        <div className="flex-1 overflow-y-auto bg-orca-darker p-4">
-          <CaseStudyPreview />
-        </div>
-
-        {/* Export Buttons - Sticky at bottom on mobile, compact toolbar */}
-        <div className="sticky bottom-0 bg-orca-darker border-t border-orca-grey-1 p-1.5 shadow-lg">
-          <ExportButtons />
-        </div>
-      </div>
+      {/* Preview Lightbox */}
+      <PreviewLightbox isOpen={isPreviewOpen} onClose={() => setIsPreviewOpen(false)} />
     </div>
   );
 }
