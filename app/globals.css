@@ -78,3 +78,13 @@ svg[class*="h-3.5"] {
   max-height: 0.875rem !important;
 }
 
+svg.w-4,
+svg.h-4,
+svg[class*="w-4"],
+svg[class*="h-4"] {
+  width: 1rem !important;
+  height: 1rem !important;
+  max-width: 1rem !important;
+  max-height: 1rem !important;
+}
+
