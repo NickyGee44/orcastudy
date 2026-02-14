@@ -16,7 +16,7 @@
     "@types/node": "^24.10.1",
     "@types/react": "^19.2.6",
     "@types/react-dom": "^19.2.3",
-    "autoprefixer": "^10.4.22",
+    "autoprefixer": "^10.4.24",
     "html2canvas": "^1.4.1",
     "jspdf": "^4.1.0",
     "next": "^16.0.3",
